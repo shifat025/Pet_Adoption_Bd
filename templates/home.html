@@ -66,7 +66,7 @@
         {% comment %} <a class="btn btn-warning"  href="{% url 'Details' i.id %}">View</a> {% endcomment %}
       </div>
       {% if request.user.is_authenticated %}
-      {% if i.is_available %}
+      {% if pet.is_available %}
       <div style="width:50% ; margin : auto"><a href="{% url 'adopt' id=i.id %}" class="btn btn-warning">adopt</a></div>
       {% endif %}
       {% endif %}
