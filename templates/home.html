@@ -67,7 +67,7 @@
       </div>
       {% if request.user.is_authenticated %}
       {% if pet.is_available %}
-      <div style="width:50% ; margin : auto"><a href="{% url 'adopt' id=i.id %}" class="btn btn-warning">adopt</a></div>
+      <div style="width:50% ; margin : auto"><a href="{% url 'adopt' id=pet.id %}" class="btn btn-warning">adopt</a></div>
       {% endif %}
       {% endif %}
     </div>
