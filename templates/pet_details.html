@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+{%  load crispy_forms_tags %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+{% endblock  %}
+{% block content %}
+
+<div class="col-12 p-img">
+    <div class="card m-2 p-img">
+            <div class='d-flex  align-items-center justify-content-center'>
+                <div class="p-img">
+                    <img src="{{details.image.url}}" class="card-img-top " alt="..." >
+                </div>
+                <div style="width:50% ; margin">
+                    <h5 class="card-title">{{details.name}}</h5>
+                    <h5 class="card-title">Discription :{{details.discription}} </h5>
+                    <h5 class="card-title">Price :${{details.price}} </h5>
+                    {% if details.is_available %}
+                    <h1>Available</h1>
+                    {% else %}
+                        <h1>Not Available</h1>
+                    {% endif %}
+                    <h4>Pet Type : <button class="btn btn-danger  m-2">{{details.pet_type}}</button></h4>
+                    {% if request.user.is_authenticated %}
+                    <div style="width:50% ; margin : auto"><a href="{% url 'adopt' id=details.id %}" class="btn btn-warning">adopt</a></div>
+                    {% endif %}
+                </div>   
+            </div>             
+
+           
+       
+    </div>
+</div>
+<div class="card m-2">
+    <h5 class="p-3">Total Reviews: {{ reviews | length }}</h5>
+    {% for review in reviews %}
+        <div class="card-body border m-2">
+            <p>{{ review.user.username }} </p>
+            <h2>Rating {{ review.rating }}</h2>
+            <p>{{ review.comment }}</p>
+        </div>
+    {% endfor %}
+</div>
+{% if request.user.is_authenticated %}
+{% if has_adopted_pet %}
+    <div class="card m-2">
+        <div class="card-body">
+            <form method="post">
+                <h1>Add Review</h1>
+                {% csrf_token %}
+                {{ review_form | crispy }}
+                <button class="btn btn-warning">Submit Review</button>
+            </form>
+        </div>
+    </div>
+{% endif %}
+{% endif %}
+        </form>
+    </div>
+</div>
+
+
+{% endblock  %}

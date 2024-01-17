@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+  
+  <div class="col-12">
+    <div class="card m-2 ">
+    <div class="card-body four"> 
+    <a class="mx-3 btn btn-warning text-dark" href="{% url 'adopt_history' %}">Adopt History</a>
+
+    <div class='d-flex justify-content-center align-items-center  gap-5 flex-wrap' >
+      <div>
+      <h1>UserName : {{user.username}} </h1>
+      <h2>First Name : {{user.first_name}}  </h2>
+      <h2>Last Name : {{user.last_name}} </h2>
+      <h2>Email : {{user.email}} </h2>
+      <br>
+      <div class='d-flex justify-content-between'>
+        <div>
+          <a class="mx-3 btn btn-warning text-dark"  aria-current="page" href="{% url 'Profile_update' %}">Update Profile</a>
+        </div>
+        <div>
+          <a class="mx-3 btn btn-danger text-dark"  aria-current="page" href="{% url 'pass_change' %}">Update Password</a>
+        </div>
+      </div>
+     
+     </div>
+ 
+    </div>
+    </div>
+  </div>
+  
+
+{% endblock  %}

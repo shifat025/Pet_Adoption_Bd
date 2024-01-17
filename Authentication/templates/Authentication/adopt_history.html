@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+{% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}"> {% endcomment %}
+  
+  <div class="col-12">
+    <div class="card m-2 ">
+    <div class="card-body four"> 
+    <div><h1>Adopt History</h1></div>
+    <div class='d-flex justify-content-center align-items-center  gap-5 flex-wrap' >
+      {% for post in dataa %}
+      <div class="card" style="width: 18rem;">
+      <img src="{{post.a_pets.image.url}}" class="card-img-top" alt="...">
+      <div class="card-body" >
+        
+        <h5 class="card-title"> <a class="btn btn-warning" href="">{{post.a_pets.name}}</a></h5>
+        <h5 class="card-title">{{post.cars.description | truncatewords:10 }}</h5>
+        <h5 class="card-title">Price : ${{post.a_pets.price}}</h5>
+        <h4>Pet Type : <button class="btn btn-danger  m-2">{{post.a_pets.pet_type}}</button></h4>
+        <h5 class="card-title">Adopt Date : {{post.adopt_date}}</h5>
+        <div class='p-2' style="width:50% ; margin : auto">
+        <a class="btn btn-danger  m-2" href="{% url 'Details' post.a_pets.id %}">Details</a>
+        </div>
+      </div>
+      </div>
+    {% endfor %}
+    </div>
+    </div>
+  </div>
+  
+
+{% endblock  %}
