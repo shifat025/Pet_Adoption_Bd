@@ -92,7 +92,7 @@ def profile(request):
 
 
 class UpdateView(View,LoginRequiredMixin):
-    template_name = 'authentication/profile_update.html'
+    template_name = 'Authentication/profile_update.html'
 
     def get(self, request):
         form = ChangeUserForm(instance=request.user)
