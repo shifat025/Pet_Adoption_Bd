@@ -16,3 +16,10 @@ body{
     height: 150px;
     border-radius: 50%;
 }
+.details-img{
+    width: 250px;
+    height: 340px;
+    border-radius: 10px;
+    position: relative;
+    right: 30px;
+}

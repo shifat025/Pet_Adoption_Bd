@@ -10,6 +10,10 @@
 .card-title{
     margin: 0px;
 }
+.adpot-btn{
+    position: relative;
+    left: 20px;
+}
 .btnn{
     position: relative;
     bottom: 30px;

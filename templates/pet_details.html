@@ -8,9 +8,9 @@
 
 <div class="col-12 p-img">
     <div class="card m-2 p-img">
-            <div class='d-flex  align-items-center justify-content-center'>
+            <div class='d-flex  align-items-center justify-content-center '>
                 <div class="p-img">
-                    <img src="{{details.image.url}}" class="card-img-top " alt="..." >
+                    <img src="{{details.image.url}}" class="card-img-top details-img" alt="..." >
                 </div>
                 <div style="width:50% ; margin">
                     <h5 class="card-title">{{details.name}}</h5>
@@ -57,6 +57,7 @@
 {% endif %}
 {% endif %}
         </form>
+        {% include "fotter.html" %}
     </div>
 </div>
 
