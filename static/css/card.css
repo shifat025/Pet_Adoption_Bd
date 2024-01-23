@@ -38,11 +38,11 @@
     color: white;  /* Set the text color */
 }
 .text {
-    font-size: 70px;
+    font-size: 85px;
     color: white;
     position: absolute;
-    top: 60%; /* Position the text in the middle */
-    left: 30%;
+    top: 50%; /* Position the text in the middle */
+    left: 25%;
     transform: translate(-50%, -50%); /* Center the text */
     z-index: 1; /* Ensure the text is on top of the image */
 }
