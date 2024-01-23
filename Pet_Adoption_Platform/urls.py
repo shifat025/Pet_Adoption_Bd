@@ -23,11 +23,14 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name = 'home'),
+    path('home/', views.home, name = 'home'),
     path('pet_category/<slug:pet_slug>/', views.home, name='pet_wise_post'),
     path('', include('Authentication.urls')),
     path('', include('transaction.urls')),
     path('', include('pet.urls')),
     path('', include('buy.urls')),
+    path('contact/',views.contact, name='contact'),
+    path('about/',views.about, name='about'),
     path('pet_details/<int:id>', views.Details.as_view(), name='Details')
 ]
 if settings.DEBUG:

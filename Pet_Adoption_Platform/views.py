@@ -15,6 +15,11 @@ def home(request, pet_slug = None):
     pet = pet_category.objects.all()
     return render(request, 'home.html', {'data': data, 'pet': pet})
 
+def contact(request):
+    return render(request,'contact.html')
+def about(request):
+    return render(request,'about.html')
+
 class Details(DetailView):
     model = pets  # assuming 'pets' is the name of the model, change if necessary
     pk_url_kwarg = 'id'

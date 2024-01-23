@@ -1,0 +1,116 @@
+.card-img-top{
+    height: 200px;
+    padding: 3px;
+    border-radius: 20px;
+}
+.pet-card{
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px gray;
+}
+.card-title{
+    margin: 0px;
+}
+.btnn{
+    position: relative;
+    bottom: 30px;
+    display: flex;
+    right: 10px;
+    gap: 10px;
+    justify-content: center;
+    
+}
+.available{
+    position: relative;
+    bottom: 20px;
+}
+
+.carosel-bg{
+    background-image: linear-gradient(90deg,rgb(95, 67, 67),rgb(95, 92, 92));
+}
+
+.banar {
+    position: relative;
+    text-align: center;
+    color: white;  /* Set the text color */
+}
+.text {
+    font-size: 70px;
+    color: white;
+    position: absolute;
+    top: 60%; /* Position the text in the middle */
+    left: 30%;
+    transform: translate(-50%, -50%); /* Center the text */
+    z-index: 1; /* Ensure the text is on top of the image */
+}
+.home {
+    width: 100%; /* Make sure the image fills its container */
+    height: auto;
+    
+}
+.cd-img{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+}
+.round-pic{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.w-ban{
+    padding: 150px;
+}
+.welcome-text{
+    font-size: 80px;
+    position: relative;
+    left: 90px;
+}
+.welcome-pic{
+    width: 600px;
+}
+
+.fotter{
+    background-color: blue;
+    
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-links li {
+    display: inline-block;
+    margin: 0 15px;
+  }
+
+  .footer-links a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .footer-social-icons {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+  }
+
+  .footer-social-icons li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  .footer-social-icons a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+  }

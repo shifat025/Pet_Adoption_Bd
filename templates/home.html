@@ -1,73 +1,76 @@
 {% extends "base.html" %}
+
 {% load static %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/card.css' %}">
+{% endblock  %}
 
 {% block content %}
-
-<div class="col-12">
-  <div class="card m-2">
-    <div class="card-body one">
-      <div class="d-flex justify-content-center align-items-center p-4">
-        <h1>Adopt pets here</h1>
-        <img class="home mx-5" src="{% static 'images/adopt.jpeg' %}" alt="">
-     </div>
-    </div>
-  </div>
+<div class='d-flex justify-align-content-between'>
+  <div class='banar'>
+    <h1 class='text'>Best pet adoption pltafrom.Easily pet adopt here</h1>
+   <img class="home" src="{% static 'images/banner_1.jpg' %}" alt="">
+</div>
 </div>
 
-<div class="col-12">
-  <div class="card m-2">
-    <div class="card-body">
-      <div class='d-flex justify-content-center flex-wrap'>
-      {% for b in pet %}
-        
-          <a class="btn btn-warning m-2", style="width: 120px;" href="{% url 'pet_wise_post' b.slug %}">{{b.name}}</a>
-          
-      {% endfor %}
-    </div>
-    </div>
-  </div>
-</div>
-<div class="col-12">
-  <div class="card m-2">
-    <div class="card-body three">
-      <div class='d-flex justify-content-center'>
-        <h4>Total Pet found : {{data | length}}</h4>
-      </div>
-    </div>
-  </div>
-</div> 
+
+
 
 <div class="col-12">
   <div class="card m-2 ">
-    <div class="card-body four"> 
-  <div class='d-flex justify-content-center align-items-center  gap-5 flex-wrap' >
+    <div class="card-body four">
+      <div class='cd-img'>
+        <img class='round-pic' src="{% static 'images/d-11.jpeg' %}" alt="">
+        <img class='round-pic' src="{% static 'images/d-2.jpeg' %}" alt="">
+        <img class='round-pic' src="{% static 'images/c-1.jpeg' %}" alt="">
+        <img class='round-pic' src="{% static 'images/d-3.jpeg' %}" alt="">
+        <img class='round-pic' src="{% static 'images/c-22.jpeg' %}" alt="">
+      </div> 
+      <div class='d-flex align-items-center w-ban'>
+        <h1 class='welcome-text'>Welcome to our platform</h1>
+       <img class='welcome-pic' src="{% static 'images/adopt.jpeg' %}" alt="">
+      </div>
+      <div class='d-flex justify-content-center'>
+        {% for b in pet %}
+        <a class="btn btn-warning m-2", style="width: 120px;" href="{% url 'pet_wise_post' b.slug %}">{{b.name}}</a>
+      {% endfor %}
+    </div>
+    <div  class='d-flex justify-content-center'>
+      <h4>Total found : {{data | length}}</h4>
+    </div>
+  <div class='d-flex justify-content-center align-items-center  gap-4 flex-wrap' >
+    
     {% for pet in data %}
-    <div class="card" style="width: 18rem;">
+    
+    <div class="card pet-card" style="width: 19rem;">
     <img src="{{pet.image.url}}" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title"><a class="btn btn-warning" href="">{{pet.name}}</a></h5>
-      <h5 class="card-title">Discription :{{pet.discription | truncatewords:10}} </h5>
+      <h5 class="card-title"><a class="btn p-1 btn-warning" href="">{{pet.name}}</a></h5>
+      <p class="card-title">Discription :{{pet.discription | truncatewords:9}} </p>
       <h5 class="card-title">Price : ${{pet.price}}</h5>
-      <h4>Pet Type : <button class="btn btn-danger  m-2">{{pet.pet_type}}</button></h4>
+      <p>Pet Type : <button class="btn btn-danger p-0 m-0 ">{{pet.pet_type}}</button></p>
+      <div class='available'>
       {% if pet.is_available %}
-      <h4>Available</h4>
+      <p>Status: Available</p>
       {% else %}
-        <h4>Not Available</h4>
+        <p>Status: Not Available</p>
       {% endif %}
-      {% if request.user.is_authenticated %}
-       <a class="btn btn-danger  m-2" href="{% url 'pet_edit' pet.id %}">Edit</a>
-       <a class="btn btn-danger  m-2" href="{% url 'delete' pet.id %}">Delete</a>
-       {% endif %}
-       <a class="btn btn-danger  m-2" href="{% url 'Details' pet.id %}">Details</a>
-      
-
-      <h5 class="card-title"></h5>
-      <div class='p-2' style="width:50% ; margin : auto">
-        {% comment %} <a class="btn btn-warning"  href="{% url 'Details' i.id %}">View</a> {% endcomment %}
       </div>
       {% if request.user.is_authenticated %}
+       <div class='btnn' style="width:50% ; margin : auto">
+      <a class="btn btn-danger  " href="{% url 'pet_edit' pet.id %}">Edit</a>
+       <a class="btn btn-danger " href="{% url 'delete' pet.id %}">Delete</a>
+       </div>
+       {% endif %}
+       <div class='btnn'>
+       <a class="btn btn-danger  m-2" href="{% url 'Details' pet.id %}">Details</a>
+      </div>
+
+      <h5 class="card-title"></h5>
+      
+      {% if request.user.is_authenticated %}
       {% if pet.is_available %}
-      <div style="width:50% ; margin : auto"><a href="{% url 'adopt' id=pet.id %}" class="btn btn-warning">adopt</a></div>
+      <div style="width:50% ; margin : auto"><a href="{% url 'adopt' id=pet.id %}" class="btn btnn btn-warning">adopt</a></div>
       {% endif %}
       {% endif %}
     </div>
@@ -76,4 +79,5 @@
   </div>
   </div>
 </div>
+  
 {% endblock  %}

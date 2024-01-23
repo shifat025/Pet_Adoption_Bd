@@ -1,6 +1,18 @@
 body{
     background-color: rgb(127, 122, 122);
 }
-.adopt{
-    background-color: red;
+.dropdown{
+    position: relative;
+    right: 20px;
+}
+
+.n-logo{
+    width: 60px;
+    height: 40px;
+    border-radius: 50%;
+}
+.f-logo{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
 }
