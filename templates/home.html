@@ -13,23 +13,23 @@
 </div>
 </div>
 
-
+<div class='cd-img'>
+  <img class='round-pic' src="{% static 'images/d-11.jpeg' %}" alt="">
+  <img class='round-pic' src="{% static 'images/d-2.jpeg' %}" alt="">
+  <img class='round-pic' src="{% static 'images/c-1.jpeg' %}" alt="">
+  <img class='round-pic' src="{% static 'images/d-3.jpeg' %}" alt="">
+  <img class='round-pic' src="{% static 'images/c-22.jpeg' %}" alt="">
+</div> 
+<div class='d-flex align-items-center w-ban'>
+  <h1 class='welcome-text'>Welcome to our platform</h1>
+ <img class='welcome-pic' src="{% static 'images/adopt.jpeg' %}" alt="">
+</div>
 
 
 <div class="col-12">
   <div class="card m-2 ">
     <div class="card-body four">
-      <div class='cd-img'>
-        <img class='round-pic' src="{% static 'images/d-11.jpeg' %}" alt="">
-        <img class='round-pic' src="{% static 'images/d-2.jpeg' %}" alt="">
-        <img class='round-pic' src="{% static 'images/c-1.jpeg' %}" alt="">
-        <img class='round-pic' src="{% static 'images/d-3.jpeg' %}" alt="">
-        <img class='round-pic' src="{% static 'images/c-22.jpeg' %}" alt="">
-      </div> 
-      <div class='d-flex align-items-center w-ban'>
-        <h1 class='welcome-text'>Welcome to our platform</h1>
-       <img class='welcome-pic' src="{% static 'images/adopt.jpeg' %}" alt="">
-      </div>
+      
       <div class='d-flex justify-content-center'>
         {% for b in pet %}
         <a class="btn btn-warning m-2", style="width: 120px;" href="{% url 'pet_wise_post' b.slug %}">{{b.name}}</a>
