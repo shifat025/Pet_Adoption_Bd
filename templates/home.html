@@ -2,30 +2,69 @@
 
 {% load static %}
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/card.css' %}">
+<link rel="stylesheet" href="{% static 'css/card.css' %}">
+ <!-- Font Awesome -->
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+ <!-- Flaticon Font -->
+ <link href="{% static 'lib/flaticon/font/flaticon.css' %}" rel="stylesheet">
+
 {% endblock  %}
 
 {% block content %}
-<div class='d-flex justify-align-content-between'>
-  <div class='banar'>
-    <h1 class='text'>Best pet <br> adoption <br> platfrom. <br> Easily pet <br> adopt here</h1>
-   <img class="home img-fluid" src="{% static 'images/banner_1.jpg' %}" alt="">
+{% comment %} carousel start {% endcomment %}
+<div class="container-fluid p-0">
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'images/carousel-1.jpg' %}" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+          <div class="p-3" style="max-width: 900px;">
+              <h3 class="text-white mb-3 d-none d-sm-block">Best Pet Adopt platform</h3>
+              <h1 class="display-3 text-white mb-3">Welcome to our Platform</h1>
+              <h5 class="text-white mb-3 d-none d-sm-block">You can Adopt pets easily</h5>
+              <a href="" class="btn btn-lg btn-primary mt-3 mt-md-4 px-4">Adopt Now</a>
+              {% comment %} <a href="" class="btn btn-lg btn-secondary mt-3 mt-md-4 px-4">Learn More</a> {% endcomment %}
+          </div>
+      </div>
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/carousel-2.jpg' %}" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+          <div class="p-3" style="max-width: 900px;">
+              <h3 class="text-white mb-3 d-none d-sm-block">Best Pet Services</h3>
+              <h1 class="display-3 text-white mb-3">Pet Spa & Grooming</h1>
+              <h5 class="text-white mb-3 d-none d-sm-block">Relaxing pet spa with certified groomers, premium products, and customized services for a stress-free grooming experience.</h5>
+              <a href="" class="btn btn-lg btn-primary mt-3 mt-md-4 px-4">Sobscriptions Now</a>
+              {% comment %} <a href="" class="btn btn-lg btn-secondary mt-3 mt-md-4 px-4">Learn More</a> {% endcomment %}
+          </div>
+      </div>
+      </div>
+      {% comment %} <div class="carousel-item">
+        <img src="..." class="d-block w-100" alt="...">
+      </div> {% endcomment %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 </div>
-</div>
+{% comment %} carousel end {% endcomment %}
 
-<div class='cd-img'>
+{% comment %} <div class='cd-img'>
   <img class='round-pic' src="{% static 'images/d-11.jpeg' %}" alt="">
   <img class='round-pic' src="{% static 'images/d-2.jpeg' %}" alt="">
   <img class='round-pic' src="{% static 'images/c-1.jpeg' %}" alt="">
   <img class='round-pic' src="{% static 'images/d-3.jpeg' %}" alt="">
   <img class='round-pic' src="{% static 'images/c-22.jpeg' %}" alt="">
 </div> 
-<div class='d-flex align-items-center w-ban'>
-  <h1 class='welcome-text'>Welcome to our platform</h1>
- <img class='welcome-pic' src="{% static 'images/adopt.jpeg' %}" alt="">
-</div>
-
-
+  {% endcomment %}
+{% comment %} Adopt pet card{% endcomment %}
 <div class="col-12">
   <div class="card m-2 ">
     <div class="card-body four">
@@ -38,17 +77,17 @@
     <div  class='d-flex justify-content-center'>
       <h4>Total found : {{data | length}}</h4>
     </div>
-  <div class='d-flex justify-content-center align-items-center  gap-4 flex-wrap' >
+  <div class='d-flex justify-content-center align-items-center  gap-3 flex-wrap p-2' >
     
     {% for pet in data %}
     
-    <div class="card pet-card" style="width: 19rem;">
+    <div class="card shadow pet-card" style="width: 19rem;">
     <img src="{{pet.image.url}}" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title"><a class="btn p-1 btn-warning" href="">{{pet.name}}</a></h5>
       <p class="card-title">Discription :{{pet.discription | truncatewords:9}} </p>
-      <h5 class="card-title">Price : ${{pet.price}}</h5>
-      <p>Pet Type : <button class="btn btn-danger p-0 m-0 ">{{pet.pet_type}}</button></p>
+      <h5 class="card-title price">Price : ${{pet.price}}</h5>
+      <p class='type'>Pet Type : <button class="btn btn-danger p-0 m-0 ">{{pet.pet_type}}</button></p>
       <div class='available'>
       {% if pet.is_available %}
       <p>Status: Available</p>
@@ -65,12 +104,10 @@
        <div class='btnn'>
        <a class="btn btn-danger  m-2" href="{% url 'Details' pet.id %}">Details</a>
       </div>
-
-      <h5 class="card-title"></h5>
       
       {% if request.user.is_authenticated %}
       {% if pet.is_available %}
-      <div  style="width:50% ; margin : auto"><a href="{% url 'adopt' id=pet.id %}" class="btn  adpot-btn btn-warning">adopt</a></div>
+      <a style="width:50% ; margin : auto" href="{% url 'adopt' id=pet.id %}" class="btn  adpot-btn btn-warning">adopt</a>
       {% endif %}
       {% endif %}
     </div>
@@ -79,6 +116,180 @@
   </div>
   </div>
 </div>
+{% comment %} adopt pet card end {% endcomment %}
+
+{% comment %} Our Services start {% endcomment %}
+<div class="container-fluid bg-light pt-5">
+  <div class="container py-5">
+      <div class="d-flex flex-column text-center mb-5">
+          <h4 class="text-secondary mb-3">Our Services</h4>
+          <h1 class="display-4 m-0"><span class="text-primary">Premium</span> Pet Services</h1>
+      </div>
+      <div class="row pb-3">
+          <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card bg-white mb-2 p-3 p-sm-5">
+                  <h3 class="flaticon-house display-3 font-weight-normal text-secondary mb-3"></h3>
+                  <h3 class="mb-3">Pet Boarding</h3>
+                  <p>Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet, diam sea est magna diam eos, rebum sit vero stet ipsum justo</p>
+                  <a class="text-uppercase font-weight-bold" href="#">Read More</a>
+              </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card bg-white mb-2 p-3 p-sm-5">
+                  <h3 class="flaticon-food display-3 font-weight-normal text-secondary mb-3"></h3>
+                  <h3 class="mb-3">Pet Feeding</h3>
+                  <p>Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet, diam sea est magna diam eos, rebum sit vero stet ipsum justo</p>
+                  <a class="text-uppercase font-weight-bold" href="#">Read More</a>
+              </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card bg-white mb-2 p-3 p-sm-5">
+                  <h3 class="flaticon-grooming display-3 font-weight-normal text-secondary mb-3"></h3>
+                  <h3 class="mb-3">Pet Grooming</h3>
+                  <p>Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet, diam sea est magna diam eos, rebum sit vero stet ipsum justo</p>
+                  <a class="text-uppercase font-weight-bold" href="#">Read More</a>
+              </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card bg-white mb-2 p-3 p-sm-5">
+                  <h3 class="flaticon-cat display-3 font-weight-normal text-secondary mb-3"></h3>
+                  <h3 class="mb-3">Pet Training</h3>
+                  <p>Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet, diam sea est magna diam eos, rebum sit vero stet ipsum justo</p>
+                  <a class="text-uppercase font-weight-bold" href="#">Read More</a>
+              </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card bg-white mb-2 p-3 p-sm-5">
+                  <h3 class="flaticon-dog display-3 font-weight-normal text-secondary mb-3"></h3>
+                  <h3 class="mb-3">Pet Exercise</h3>
+                  <p>Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet, diam sea est magna diam eos, rebum sit vero stet ipsum justo</p>
+                  <a class="text-uppercase font-weight-bold" href="#">Read More</a>
+              </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card bg-white mb-2 p-3 p-sm-5">
+                  <h3 class="flaticon-vaccine display-3 font-weight-normal text-secondary mb-3"></h3>
+                  <h3 class="mb-3">Pet Treatment</h3>
+                  <p>Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet, diam sea est magna diam eos, rebum sit vero stet ipsum justo</p>
+                  <a class="text-uppercase font-weight-bold" href="#">Read More</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+{% comment %} Our Services end {% endcomment %}
+
+
+{% comment %} Peiceing start {% endcomment %}
+<div class='pricebody'>
+  <div class="container-fluid bg-light pt-5 pb-4">
+    <div class="container py-5">
+        <div class="d-flex flex-column text-center mb-5">
+            <h4 class="text-secondary mb-3">Pricing Plan</h4>
+            <h1 class="display-4 m-0">Choose the <span class="text-primary">Best Price</span></h1>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="card price-card border-0">
+                    <div class="card-header position-relative border-0 p-0 mb-4">
+                        <img class="card-img-top" src="{% static "images/price-1.jpg" %}" alt="">
+                        <div class="position-absolute d-flex flex-column align-items-center justify-content-center w-100 h-100" style="top: 0; left: 0; z-index: 1; background: rgba(0, 0, 0, .5);">
+                            <h3 class="basic mb-3">Basic</h3>
+                            <h1 class="display-4 text-white mb-0">
+                                <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>49<small class="align-bottom" style="font-size: 16px; line-height: 40px;">/ Mo</small>
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="card-body price-body text-center p-0">
+                        <ul class="list-group list-group-flush mb-4">
+                            <li class="list-group-item p-2"><i class="fa fa-check text-secondary me-2"></i>Feeding</li>
+                            <li class="list-group-item p-2"><i class="fa fa-check text-secondary me-2"></i>Boarding</li>
+                            <li class="list-group-item p-2"><i class="fa fa-times text-danger me-2"></i>Spa & Grooming</li>
+                            <li class="list-group-item p-2"><i class="fa fa-times text-danger me-2"></i>Veterinary Medicine</li>
+                        </ul>
+                    </div>
+                    {% if request.user.is_authenticated %}
+                    <div class="card-footer border-0 p-0">
+                        <a href="#" class="btn sing-btn-basic btn-danger btn-block p-3" style="border-radius: 0;">Subscription</a>
+                    </div>
+                    {% else %}
+                    <div class="card-footer border-0 p-0">
+                      <a href="#" class="btn sing-btn-basic btn-danger btn-block p-3" style="border-radius: 0;">Signup Now</a>
+                  </div>
+                  {% endif %}
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card price-card border-0">
+                    <div class="card-header  position-relative border-0 p-0 mb-4">
+                        <img class="card-img-top" src="{% static "images/price-2.jpg" %}" alt="">
+                        <div class="position-absolute d-flex flex-column align-items-center justify-content-center w-100 h-100" style="top: 0; left: 0; z-index: 1; background: rgba(0, 0, 0, .5);">
+                            <h3 class="text-secondary standard mb-3">Standard</h3>
+                            <h1 class="display-4 text-white mb-0">
+                                <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>99<small class="align-bottom" style="font-size: 16px; line-height: 40px;">/ Mo</small>
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="card-body price-body text-center p-0">
+                        <ul class="list-group list-group-flush mb-4">
+                            <li class="list-group-item p-2"><i class="fa fa-check text-secondary me-2"></i>Feeding</li>
+                            <li class="list-group-item p-2"><i class="fa fa-check text-secondary me-2"></i>Boarding</li>
+                            <li class="list-group-item p-2"><i class="fa fa-check text-secondary me-2"></i>Spa & Grooming</li>
+                            <li class="list-group-item p-2"><i class="fa fa-times text-danger me-2"></i>Veterinary Medicine</li>
+                        </ul>
+                    </div>
+                    {% if request.user.is_authenticated %}
+                    <div class="card-footer border-0 p-0">
+                        <a href="#" class="btn  sing-btn-standard btn-danger btn-block p-3" style="border-radius: 0;">Subscriptin</a>
+                    </div>
+                    {% else %}
+                    <div class="card-footer border-0 p-0">
+                      <a href="#" class="btn sing-btn-standard btn-danger btn-block p-3" style="border-radius: 0;">Signup Now</a>
+                  </div>
+                  {% endif %}
+
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card price-card border-0">
+                    <div class="card-header position-relative border-0 p-0 mb-4">
+                        <img class="card-img-top" src="{% static "images/price-1.jpg" %}" alt="">
+                        <div class="position-absolute d-flex flex-column align-items-center justify-content-center w-100 h-100" style="top: 0; left: 0; z-index: 1; background: rgba(0, 0, 0, .5);">
+                            <h3 class="text-primary premium mb-3">Premium</h3>
+                            <h1 class="display-4 text-white mb-0">
+                                <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>149<small class="align-bottom" style="font-size: 16px; line-height: 40px;">/ Mo</small>
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="card-body price-body text-center p-0">
+                        <ul class="list-group list-group-flush mb-4">
+                            <li class="list-group-item p-2"><i class="fa fa-check text-secondary me-2"></i>Feeding</li>
+                            <li class="list-group-item p-2"><i class="fa fa-check text-secondary me-2"></i>Boarding</li>
+                            <li class="list-group-item p-2"><i class="fa fa-check text-secondary me-2"></i>Spa & Grooming</li>
+                            <li class="list-group-item p-2"><i class="fa fa-check text-secondary me-2"></i>Veterinary Medicine</li>
+                        </ul>
+                    </div>
+                    {% if request.user.is_authenticated %}
+                    <div class="card-footer border-0 p-0">
+                        <a href="#" class="btn sing-btn btn-danger btn-block p-3" style="border-radius: 0;">Signup Now</a>
+                    </div>
+                    {% else %}
+                    <div class="card-footer border-0 p-0">
+                      <a href="#" class="btn sing-btn btn-danger btn-block p-3" style="border-radius: 0;">Signup Now</a>
+                  </div>
+                  {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+{% comment %} Peiceing end {% endcomment %}
+
 {% include "fotter.html" %}
   
 {% endblock  %}

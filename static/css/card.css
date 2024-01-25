@@ -1,57 +1,6 @@
-.card-img-top{
-    height: 200px;
-    padding: 3px;
-    border-radius: 20px;
-}
-.pet-card{
-    border-radius: 20px;
-    box-shadow: 5px 5px 10px gray;
-}
-.card-title{
-    margin: 0px;
-}
-.adpot-btn{
-    position: relative;
-    left: 20px;
-}
-.btnn{
-    position: relative;
-    bottom: 30px;
-    display: flex;
-    right: 10px;
-    gap: 10px;
-    justify-content: center;
-    
-}
-.available{
-    position: relative;
-    bottom: 20px;
-}
 
-.carosel-bg{
-    background-image: linear-gradient(90deg,rgb(95, 67, 67),rgb(95, 92, 92));
-}
 
-.banar {
-    position: relative;
-    text-align: center;
-    color: white;  /* Set the text color */
-}
-.text {
-    font-size: 120px;
-    color: white;
-    position: absolute;
-    top: 50%; /* Position the text in the middle */
-    left: 25%;
-    transform: translate(-50%, -50%); /* Center the text */
-    z-index: 1; /* Ensure the text is on top of the image */
-}
-.home {
-    width: 100%; /* Make sure the image fills its container */
-    height: auto;
-    
-}
-.cd-img{
+/* .cd-img{
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -61,17 +10,267 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
+} */
+
+
+
+/* Styling for pet cards */
+
+
+.card.shadow.pet-card {
+    border: none;
+    transition: transform 0.3s ease-in-out;
 }
-.w-ban{
-    padding: 150px;
+
+.card.shadow.pet-card:hover {
+    transform: scale(1.05);
 }
-.welcome-text{
-    font-size: 80px;
+
+.card.shadow.pet-card .card-body {
+    padding: 1.25rem;
+}
+
+.card.shadow.pet-card img.card-img-top {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.card.shadow.pet-card h5.card-title a.btn {
+    color: #fff;
+}
+
+
+.card-img-top{
+    height: 130px;
+    padding: 3px;
+    border-radius: 0px 0px 0px 0px;
+   
+}
+.price{
     position: relative;
-    left: 90px;
+    bottom: 10px;
 }
-.welcome-pic{
-    width: 600px;
+.type{
+    position: relative;
+    bottom: 15px;
+}
+.card-title{
+    margin: 0px;
+}
+.adpot-btn{
+    position: relative;
+    left: 50px;
+    bottom: 40px;
+}
+.btnn{
+    position: relative;
+    bottom: 40px;
+    display: flex;
+    right: 10px;
+    gap: 10px;
+    justify-content: center;
+}
+.available{
+    position: relative;
+    bottom: 30px;
+}
+/* end adopt section */
+
+
+ /* Styling for service section */
+.container-fluid.bg-light.pt-5 {
+    background-color: #f8f9fa; /* Light background color */
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.d-flex.flex-column.text-center.mb-5 h4 {
+    color: #6c757d; /* Subtitle color */
+}
+
+.d-flex.flex-column.text-center.mb-5 h1 {
+    color: #007bff; /* Main title color */
+}
+
+.card.bg-white.mb-2.p-3.p-sm-5 {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.card.bg-white.mb-2.p-3.p-sm-5:hover {
+    transform: scale(1.05);
+}
+
+.card.bg-white.mb-2.p-3.p-sm-5 h3 {
+    color: #343a40; /* Card title color */
+    text-align: center;
+    
+}
+
+.card.bg-white.mb-2.p-3.p-sm-5 p {
+    color: #6c757d; /* Card text color */
+    text-align: center;
+}
+
+.card.bg-white.mb-2.p-3.p-sm-5 a.text-uppercase.font-weight-bold {
+    color: #007bff; /* Read more link color */
+    text-decoration: none;
+    text-align: center;
+}
+
+.card.bg-white.mb-2.p-3.p-sm-5 a.text-uppercase.font-weight-bold:hover {
+    text-decoration: underline;
+}
+
+
+
+/* Styling for card icons */
+.card.bg-white.mb-2.p-3.p-sm-5 h3.flaticon-house::before,
+.card.bg-white.mb-2.p-3.p-sm-5 h3.flaticon-food::before,
+.card.bg-white.mb-2.p-3.p-sm-5 h3.flaticon-grooming::before,
+.card.bg-white.mb-2.p-3.p-sm-5 h3.flaticon-cat::before,
+.card.bg-white.mb-2.p-3.p-sm-5 h3.flaticon-dog::before,
+.card.bg-white.mb-2.p-3.p-sm-5 h3.flaticon-vaccine::before {
+    font-size: 80px;
+    color: green; /* Icon color */
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+/* Optionally, you can add a subtle shadow to the cards on hover */
+.card.bg-white.mb-2.p-3.p-sm-5:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* end services */
+
+
+
+/* Styling for Pricing Plan cards */
+.price-card {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.price-card:hover {
+    transform: scale(1.05);
+}
+
+.price-card .card-header {
+    position: relative;
+    border-radius: 10px;
+}
+
+.price-card img.card-img-top {
+    height: 90%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.price-card .card-header .position-absolute {
+    background: rgba(0, 0, 0, 0.7);
+    top: 0;
+    left: 0;
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.price-card .card-footer {
+    border-radius: 10px;
+}
+
+.price-card .basic {
+    font-size: 35px;
+    margin-bottom: 10px;
+    color: orange;
+   
+}
+.price-card  .standard{
+    font-size: 35px;
+    margin-bottom: 10px;
+    color: rgb(115, 169, 34) !important;
+}
+.price-card  .premium{
+    font-size: 35px;
+    margin-bottom: 10px;
+    color: orangered !important;
+}
+.price-card .sing-btn-basic{
+    width: 100%;
+    background-color: orange;
+    border: none;
+}
+ .price-card  .sing-btn-standard{
+    width: 100%;
+    background-color: rgb(115, 169, 34) ;
+    border: none;
+ }
+
+ .price-card .sing-btn{
+    width: 100%;
+    background-color: orangered;
+    border: none;
+}
+.price-card h1 {
+    font-size: 50px;
+    font-weight: bold;
+    margin: 0;
+    color: #fff;
+}
+
+.price-card small {
+    font-size: 16px;
+}
+
+.price-card .list-group-item {
+    padding: 10px;
+}
+
+.price-card .btn {
+    border-radius: 0;
+}
+
+/* Set a margin between cards */
+.price-card {
+    margin-bottom: 20px;
+}
+
+/* Custom colors */
+.price-card-basic .card-header .position-absolute {
+    background: rgba(41, 128, 185, 0.8);
+}
+
+.price-card-standard .card-header .position-absolute {
+    background: rgba(108, 122, 137, 0.8);
+}
+
+.price-card-premium .card-header .position-absolute {
+    background: rgba(231, 76, 60, 0.8);
+}
+
+/* Additional styles */
+.pricebody h1,
+.pricebody h4 {
+    color: #343a40;
+}
+
+.pricebody p {
+    color: #6c757d;
+}
+
+
+
+/* Set a margin between cards */
+.price-card {
+    margin-bottom: 20px;
 }
 
 .fotter{
