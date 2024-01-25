@@ -19,6 +19,7 @@
 
 .card.shadow.pet-card {
     border: none;
+    height: 470px;
     transition: transform 0.3s ease-in-out;
 }
 
@@ -33,6 +34,7 @@
 .card.shadow.pet-card img.card-img-top {
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
+    
 }
 
 .card.shadow.pet-card h5.card-title a.btn {
@@ -78,6 +80,23 @@
 
 
  /* Styling for service section */
+.our-services{
+    font-weight: bold;
+    color: rgb(37, 203, 37) !important;
+}
+.premiums{
+  
+    font-size: 5rem;
+    font-weight: bold;
+    color: #ED6436 !important;
+    font-style: italic;
+}
+.p-service{
+    font-weight: bold !important;
+    font-size: 5rem !important;
+    color: rgb(166, 193, 125) !important;
+}
+
 .container-fluid.bg-light.pt-5 {
     background-color: #f8f9fa; /* Light background color */
     padding-top: 50px;
@@ -127,6 +146,22 @@
 
 
 /* Styling for card icons */
+.pricing-plan{
+    font-weight: bold;
+    color: rgb(37, 203, 37) !important;
+}
+.chose{
+    font-size: 4rem !important;
+    font-weight: bold !important;
+    color: rgb(135, 170, 83) !important;
+}
+.best-price{
+    font-size: 4rem;
+    font-weight: bold;
+    font-style: italic;
+    color: #ED6436 !important;
+}
+
 .card.bg-white.mb-2.p-3.p-sm-5 h3.flaticon-house::before,
 .card.bg-white.mb-2.p-3.p-sm-5 h3.flaticon-food::before,
 .card.bg-white.mb-2.p-3.p-sm-5 h3.flaticon-grooming::before,
@@ -154,10 +189,15 @@
 
 
 /* Styling for Pricing Plan cards */
+
 .price-card {
     border-radius: 10px;
     overflow: hidden;
+    
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
+    
 }
 
 .price-card:hover {
