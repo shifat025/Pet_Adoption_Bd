@@ -13,9 +13,9 @@
 
 {% block content %}
 {% comment %} carousel start {% endcomment %}
-<div class="container-fluid p-0">
+<div class="container-fluid p-0"  >
   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
+    <div class="carousel-inner" >
       <div class="carousel-item active">
         <img src="{% static 'images/carousel-1.jpg' %}" class="d-block w-100" alt="...">
         <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
@@ -23,7 +23,7 @@
               <h3 class="text-white mb-3 d-none d-sm-block">Best Pet Adopt platform</h3>
               <h1 class="display-3 text-white mb-3">Welcome to our Platform</h1>
               <h5 class="text-white mb-3 d-none d-sm-block">You can Adopt pets easily</h5>
-              <a href="" class="btn btn-lg btn-primary mt-3 mt-md-4 px-4">Adopt Now</a>
+              <a href="#adopt" class="btn btn-lg btn-primary mt-3 mt-md-4 px-4">Adopt Now</a>
               {% comment %} <a href="" class="btn btn-lg btn-secondary mt-3 mt-md-4 px-4">Learn More</a> {% endcomment %}
           </div>
       </div>
@@ -35,7 +35,7 @@
               <h3 class="text-white mb-3 d-none d-sm-block">Best Pet Services</h3>
               <h1 class="display-3 text-white mb-3">Pet Spa & Grooming</h1>
               <h5 class="text-white mb-3 d-none d-sm-block">Relaxing pet spa with certified groomers, premium products, and customized services for a stress-free grooming experience.</h5>
-              <a href="" class="btn btn-lg btn-primary mt-3 mt-md-4 px-4">Sobscriptions Now</a>
+              <a href="#subscription" class="btn btn-lg btn-primary mt-3 mt-md-4 px-4">Subscribe Now</a>
               {% comment %} <a href="" class="btn btn-lg btn-secondary mt-3 mt-md-4 px-4">Learn More</a> {% endcomment %}
           </div>
       </div>
@@ -69,7 +69,7 @@
   <div class="card m-2 ">
     <div class="card-body four">
       
-      <div class='d-flex justify-content-center'>
+      <div id="adopt" class='d-flex justify-content-center'>
         {% for b in pet %}
         <a class="btn btn-warning m-2", style="width: 120px;" href="{% url 'pet_wise_post' b.slug %}">{{b.name}}</a>
       {% endfor %}
@@ -182,16 +182,16 @@
 
 
 {% comment %} Peiceing start {% endcomment %}
-<div class='pricebody'>
+<div class='pricebody '>
   <div class="container-fluid price-bg bg-light pt-5 pb-4" style="background-color: rgb(245, 245, 245) !important; ">
     <div class="container  py-5">
         <div class="d-flex flex-column text-center mb-5">
             <h2 class="pricing-plan mb-3">Pricing Plan</h2>
-            <h1 class="display-4 chose m-0">Choose the <span class="best-price">Best Price</span></h1>
+            <h1 id="subscription" class="display-4 chose m-0">Choose the <span class="best-price">Best Price</span></h1>
         </div>
         <div class="row">
             <div class="col-lg-4 mb-4">
-                <div class="card price-card border-0">
+                <div  class="card price-card border-0">
                     <div class="card-header position-relative border-0 p-0 mb-4">
                         <img class="card-img-top" src="{% static "images/price-1.jpg" %}" alt="">
                         <div class="position-absolute d-flex flex-column align-items-center justify-content-center w-100 h-100" style="top: 0; left: 0; z-index: 1; background: rgba(0, 0, 0, .5);">
@@ -241,7 +241,7 @@
                     </div>
                     {% if request.user.is_authenticated %}
                     <div class="card-footer border-0 p-0">
-                        <a href="#" class="btn  sing-btn-standard btn-danger btn-block p-3" style="border-radius: 0;">Subscriptin</a>
+                        <a href="#" class="btn  sing-btn-standard btn-danger btn-block p-3" style="border-radius: 0;">Subscription</a>
                     </div>
                     {% else %}
                     <div class="card-footer border-0 p-0">
@@ -272,7 +272,7 @@
                     </div>
                     {% if request.user.is_authenticated %}
                     <div class="card-footer border-0 p-0">
-                        <a href="#" class="btn sing-btn btn-danger btn-block p-3" style="border-radius: 0;">Signup Now</a>
+                        <a href="#" class="btn sing-btn btn-danger btn-block p-3" style="border-radius: 0;">Subscription</a>
                     </div>
                     {% else %}
                     <div class="card-footer border-0 p-0">
@@ -286,9 +286,88 @@
 </div>
 
 </div>
-
-
 {% comment %} Peiceing end {% endcomment %}
+
+<!-- Team Start -->
+<div class="team-member">
+  <div class="container mt-5 pt-5 pb-3">
+    <div class="d-flex flex-column text-center mb-5">
+      <h4 class="text-secondary mb-3">Team Member</h4>
+      <h1 class="display-4 m-0">Meet Our <span class="text-primary">Team Member</span></h1>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-6" >
+        <div class="team-card  position-relative overflow-hidden border-0 mb-4">
+          <img class="card-img-top" style="height:299.2px" src="{% static "images/team-1.jpg"  %}" alt="">
+          <div class="card-body text-center p-0">
+            <div class="team-text d-flex flex-column justify-content-center bg-light">
+              <h5>Mollie Ross</h5>
+              <i>Founder & CEO</i>
+            </div>
+            <div class="team-social d-flex align-items-center justify-content-center bg-dark">
+              <a class="btn btn-outline-primary rounded-circle text-center me-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-twitter"></i></a>
+              <a class="btn btn-outline-primary rounded-circle text-center me-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-facebook-f"></i></a>
+              <a class="btn btn-outline-primary rounded-circle text-center me-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a class="btn btn-outline-primary rounded-circle text-center px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="team-card  position-relative overflow-hidden border-0 mb-4">
+          <img class="card-img-top" style="height:300px" src="{% static "images/team-2.jpg"  %}" alt="">
+          <div class="card-body text-center p-0">
+            <div class="team-text d-flex flex-column justify-content-center bg-light">
+              <h5>Jennifer Page</h5>
+              <i>Chef Executive</i>
+            </div>
+            <div class="team-social d-flex align-items-center justify-content-center bg-dark">
+              <a class="btn btn-outline-primary rounded-circle text-center me-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-twitter"></i></a>
+              <a class="btn btn-outline-primary rounded-circle text-center me-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-facebook-f"></i></a>
+              <a class="btn btn-outline-primary rounded-circle text-center me-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a class="btn btn-outline-primary rounded-circle text-center px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="team-card position-relative overflow-hidden border-0 mb-4">
+          <img class="card-img-top" style="height:300px" src="{% static "images/team-3.jpg"  %}" alt="">
+          <div class="card-body text-center p-0">
+            <div class="team-text d-flex flex-column justify-content-center bg-light">
+              <h5>Kate Glover</h5>
+              <i>Doctor</i>
+            </div>
+            <div class="team-social d-flex align-items-center justify-content-center bg-dark">
+              <a class="btn btn-outline-primary rounded-circle text-center me-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-twitter"></i></a>
+              <a class="btn btn-outline-primary rounded-circle text-center me-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-facebook-f"></i></a>
+              <a class="btn btn-outline-primary rounded-circle text-center me-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a class="btn btn-outline-primary rounded-circle text-center px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="team-card position-relative overflow-hidden border-0 mb-4">
+          <img class="card-img-top" style="height:300px" src="{% static "images/team-4.jpg"  %}" alt="">
+          <div class="card-body text-center p-0">
+            <div class="team-text d-flex flex-column justify-content-center bg-light">
+              <h5>Lilly Fry</h5>
+              <i>Trainer</i>
+            </div>
+            <div class="team-social d-flex align-items-center justify-content-center bg-dark">
+              <a class="btn btn-outline-primary rounded-circle text-center me-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-twitter"></i></a>
+              <a class="btn btn-outline-primary rounded-circle text-center me-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-facebook-f"></i></a>
+              <a class="btn btn-outline-primary rounded-circle text-center me-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a class="btn btn-outline-primary rounded-circle text-center px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Team End -->
 
 {% include "fotter.html" %}
   

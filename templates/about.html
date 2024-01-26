@@ -6,24 +6,48 @@
 
 {% block content %}
 <header>
-    <h1>Pet Adopt BD</h1>
-    
-    <section class="about">
-        <p>Welcome to Pet Adopt BD, where we are committed to making a difference in the lives of animals in need. Our organization was founded with the belief that every pet deserves a loving and permanent home.</p>
-
-        <p>At Pet Adopt BD, we work tirelessly to rescue, rehabilitate, and rehome pets that have been abandoned, neglected, or are in need of a new family. Our dedicated team of volunteers and staff members is passionate about creating happy endings for both pets and adopters.</p>
-
-        <h3>Our Mission</h3>
-        <p>Our mission is to connect animals with compassionate individuals and families who can provide them with a safe and nurturing environment. We strive to create lifelong bonds between pets and their adopters, ensuring that each adoption is a successful and fulfilling experience.</p>
-
-        <h3>How We Operate</h3>
-        <p>We operate as a non-profit organization, relying on donations, sponsorships, and the support of our community. All funds raised go directly towards the care of our animals, including veterinary services, shelter, food, and enrichment programs.</p>
-
-        <h3>Get Involved</h3>
-        <p>Whether you're looking to adopt a new furry friend, volunteer your time, or make a donation, there are many ways to get involved with Pet Adopt BD. Together, we can make a positive impact on the lives of animals and create a world where every pet has a loving home.</p>
-    </section>
-    
+    <div class="container">
+        <h1>About</h1>
+    </div>
 </header>
+
+<section class="about">
+    <div class="container">
+        <div class="d-flex">
+            <img src="{% static "images/adopt.jpeg" %}" alt="">
+            <div>
+                <p>Welcome to Pet Adopt BD, where we are committed to making a difference in the lives of animals in need. Our organization was founded with the belief that every pet deserves a loving and permanent home.</p>
+                <p>At Pet Adopt BD, we work tirelessly to rescue, rehabilitate, and rehome pets that have been abandoned, neglected, or are in need of a new family. Our dedicated team of volunteers and staff members is passionate about creating happy endings for both pets and adopters.</p>
+            </div>
+        </div>
+
+        <div class="d-flex">
+            <img class="misson" src="{% static "images/our_misson.jpg" %}" alt="">
+            <div>
+                <h3>Our Mission</h3>
+                <p>Our mission is to connect animals with compassionate individuals and families who can provide them with a safe and nurturing environment. We strive to create lifelong bonds between pets and their adopters, ensuring that each adoption is a successful and fulfilling experience.</p>
+            </div>
+        </div>
+
+        <div class="d-flex">
+            <img src="{% static "images/oporate.jpg" %}" alt="">
+            <div>
+                <h3>How We Operate</h3>
+                <p>We operate as a non-profit organization, relying on donations, sponsorships, and the support of our community. All funds raised go directly towards the care of our animals, including veterinary services, shelter, food, and enrichment programs.</p>
+            </div>
+        </div>
+
+        <div class="d-flex">
+            <img src="{% static "images/involved.jpg" %}" alt="">
+            <div>
+                <h3>Get Involved</h3>
+                <p>Whether you're looking to adopt a new furry friend, volunteer your time, or make a donation, there are many ways to get involved with Pet Adopt BD. Together, we can make a positive impact on the lives of animals and create a world where every pet has a loving home.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 
 {% include "fotter.html" %}
 {% endblock  %}
