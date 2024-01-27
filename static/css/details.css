@@ -1,0 +1,69 @@
+.pet-card {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.details-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.details-info {
+    width: 50%;
+    margin: 0 20px;
+}
+.price{
+    position: relative;
+    bottom: 10px;
+}
+.status {
+    font-weight: bold;
+    position: relative;
+    bottom: 10px;
+}
+
+.available {
+    color: green;
+}
+
+.not-available {
+    color: red;
+}
+.pet-type{
+    position: relative;
+    bottom: 22px;
+}
+.type{
+    padding: 0px;
+}
+.btnn{
+    position: relative;
+    bottom: 25px;
+}
+.delete-btn{
+    position: relative;
+    left: 5px;
+}
+
+
+
+.adopt-btn a {
+    text-decoration: none;
+    color: #fff;
+}
+.edit-btn,
+.delete-btn {
+    transition: background-color 0.3s ease-in-out;
+}
+.adopt-btn a {
+    background-color: #f39c12;
+}
+
+.adopt-btn a:hover {
+    background-color: #e67e22;
+}

@@ -14,12 +14,11 @@
 
 
 
-/* Styling for pet cards */
-
+/* Star adopt section */
 
 .card.shadow.pet-card {
     border: none;
-    height: 470px;
+    height: 390px;
     transition: transform 0.3s ease-in-out;
 }
 
@@ -48,16 +47,27 @@
     border-radius: 0px 0px 0px 0px;
    
 }
-.price{
-    position: relative;
-    bottom: 10px;
-}
+
 .type{
     position: relative;
-    bottom: 15px;
+    bottom: 30px;
+}
+.status {
+    font-weight: bold;
+   
+}
+
+.available {
+    color: green;
+}
+
+.not-available {
+    color: red;
 }
 .card-title{
     margin: 0px;
+    position: relative;
+    bottom: 15px;
 }
 .adpot-btn{
     position: relative;
@@ -66,15 +76,21 @@
 }
 .btnn{
     position: relative;
-    bottom: 40px;
+    bottom: 65px;
     display: flex;
     right: 10px;
     gap: 10px;
     justify-content: center;
 }
+.pet-name{
+    position: relative;
+    top: 5px;
+    
+}
+
 .available{
     position: relative;
-    bottom: 30px;
+    bottom: 45px;
 }
 /* end adopt section */
 

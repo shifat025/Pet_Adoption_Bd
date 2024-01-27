@@ -82,34 +82,31 @@
     {% for pet in data %}
     
     <div class="card shadow pet-card" style="width: 19rem;">
-    <img src="{{pet.image.url}}" class="card-img-top" alt="...">
+    <div>
+      <img src="{{pet.image.url}}" class="card-img-top" alt="..." style="height:160px">
+    </div>
     <div class="card-body">
-      <h5 class="card-title"><a class="btn p-1 btn-warning" href="">{{pet.name}}</a></h5>
-      <p class="card-title">Discription :{{pet.discription | truncatewords:9}} </p>
-      <h5 class="card-title price">Price : ${{pet.price}}</h5>
+      <h5 class="card-title"><a class="btn p-1 pet-name btn-warning" href="">{{pet.name}}</a></h5>
+      <p class="card-title">{{pet.discription | truncatewords:11}} </p>
+      <h5 class="card-title price" style="position: relative; bottom: 23px;">Price: ${{pet.price}}</h5>
       <p class='type'>Pet Type : <button class="btn btn-danger p-0 m-0 ">{{pet.pet_type}}</button></p>
       <div class='available'>
       {% if pet.is_available %}
-      <p>Status: Available</p>
+      <p class="status aavailable">Status: Available</p>
       {% else %}
-        <p>Status: Not Available</p>
+        <p class="status not-available">Status: Not Available</p>
       {% endif %}
       </div>
-      {% if request.user.is_authenticated %}
-       <div class='btnn' style="width:50% ; margin : auto">
-      <a class="btn btn-danger  " href="{% url 'pet_edit' pet.id %}">Edit</a>
-       <a class="btn btn-danger " href="{% url 'delete' pet.id %}">Delete</a>
-       </div>
-       {% endif %}
+    
        <div class='btnn'>
        <a class="btn btn-danger  m-2" href="{% url 'Details' pet.id %}">Details</a>
       </div>
       
-      {% if request.user.is_authenticated %}
+      {% comment %} {% if request.user.is_authenticated %}
       {% if pet.is_available %}
       <a style="width:50% ; margin : auto" href="{% url 'adopt' id=pet.id %}" class="btn  adpot-btn btn-warning">adopt</a>
       {% endif %}
-      {% endif %}
+      {% endif %}  {% endcomment %}
     </div>
     </div>
   {% endfor %}

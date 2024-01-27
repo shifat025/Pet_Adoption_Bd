@@ -5,7 +5,7 @@ from .models import Review,pets,pet_category
 class Petform(forms.ModelForm):
     class Meta:
         model = pets
-        fields = '__all__'
+        fields = ['name','pet_type','discription','image','is_available','price']
 
 class ReviewForm(forms.ModelForm):
     class Meta:

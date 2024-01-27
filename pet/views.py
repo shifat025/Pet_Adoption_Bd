@@ -9,7 +9,9 @@ def addpet(request):
     if request.method == 'POST':
         pet_form = forms.Petform(request.POST, request.FILES)
         if pet_form.is_valid():
-            pet_form.save()
+            pet = pet_form.save(commit=False)
+            pet.user = request.user  # Associate the current user with the pet
+            pet.save()
             return redirect('addpet')
         
     else:

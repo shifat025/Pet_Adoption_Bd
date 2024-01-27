@@ -13,6 +13,7 @@ class pet_category(models.Model):
         return self.name
 
 class pets(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField( max_length=50)
     pet_type = models.ForeignKey(pet_category, on_delete=models.CASCADE)
     discription = models.TextField()
