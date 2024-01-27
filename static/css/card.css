@@ -12,7 +12,41 @@
     border-radius: 50%;
 } */
 
+.c-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-0%, -50%);
+  }
+  
+  /* Make the text responsive */
+  .c-caption h3,
+  .c-caption h1,
+  .c-caption h5,
+  .c-caption a {
+    max-width: 100%;
+  }
+  .c-caption h1 {
+    font-size: 70px;
+    font-weight: bold;
+    font-style: italic;
+}
+  
+.c-caption h3{
+    font-weight: bold;
 
+}
+.c-caption h5{
+    font-weight: bold;
+
+}
+  /* Adjust the padding for smaller screens if needed */
+  @media (max-width: 768px) {
+    .c-caption {
+      padding: 1rem;
+    }
+  }
+  
 
 /* Star adopt section */
 
