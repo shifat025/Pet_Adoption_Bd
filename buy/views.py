@@ -30,6 +30,7 @@ def adopt(request, id):
         useraccount.account_balance = balance
         useraccount.save()
         data.save()
+        messages.success(request,"Adopted Successfully")
         buy=Adopt.objects.create(user=request.user, a_pets=data)
         send_email(request.user,price, "Adopt Message", "pet/adopt_mail.html")  
         return redirect('adopt_history')

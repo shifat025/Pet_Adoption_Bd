@@ -45,7 +45,7 @@
     {% for review in reviews %}
         <div class="card-body border m-2">
             <h3>{{ review.user.username }} </h3>
-            <h5>Rating {{ review.ratting }}</h5>
+            <h5>Rating : {{ review.ratting }}</h5>
             <p>{{ review.comment }}</p>
         </div>
     {% endfor %}

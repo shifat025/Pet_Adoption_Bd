@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from . import forms
 from . import models
 
@@ -12,6 +13,7 @@ def addpet(request):
             pet = pet_form.save(commit=False)
             pet.user = request.user  # Associate the current user with the pet
             pet.save()
+            messages.success(request, 'Successfully Added')
             return redirect('addpet')
         
     else:
@@ -34,4 +36,5 @@ def pet_edit(request, id):
 def delete(request,id):
     posts = models.pets.objects.get(pk=id)
     posts.delete()
+    messages.success(request,"Deleted Successfully")
     return redirect('home')

@@ -72,7 +72,7 @@ class Loginview(LoginView):
         messages.success(self.request, 'Logged in Successful')
         return super().form_valid(form)
     def form_invalid(self, form):
-        messages.success(self.request, 'Logged in information incorrect')
+        messages.warning(self.request, 'Logged in information incorrect')
         return super().form_invalid(form)
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -102,6 +102,7 @@ class UpdateView(View,LoginRequiredMixin):
         form = ChangeUserForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Profile Updated Successfully')
             return redirect('profile')  # Redirect to the user's profile page
         return render(request, self.template_name, {'form': form})
     
