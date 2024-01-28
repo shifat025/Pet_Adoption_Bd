@@ -1,0 +1,52 @@
+.btn:hover {
+    background-color: #ffc107;
+    color: #343a40;
+  }
+  
+  /* Add transition for smooth effect */
+  .btn {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Style for the profile image */
+  .card-body img {
+    border: 2px solid #ffc107;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Add hover effect to profile image */
+  .card-body img:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Style for the breadcrumb */
+  .breadcrumb-item {
+    font-size: 18px;
+  }
+  
+  /* Add hover effect to breadcrumb */
+  .breadcrumb-item:hover {
+    color: #ffc107;
+  }
+  
+  /* Style for the user information rows */
+  .row {
+    margin-bottom: 10px;
+  }
+  
+  /* Add hover effect to user information rows */
+  .row:hover {
+    background-color: #f8f9fa;
+  }
+  
+  /* Style for the Edit button */
+  .btn-warning {
+    background-color: #ffc107;
+    color: #343a40;
+  }
+  
+  /* Add hover effect to Edit button */
+  .btn-warning:hover {
+    background-color: #343a40;
+    color: #ffc107;
+  }

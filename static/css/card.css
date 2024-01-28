@@ -16,7 +16,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-0%, -50%);
+    transform: translate(-50%, -50%);
   }
   
   /* Make the text responsive */
@@ -73,7 +73,10 @@
 .card.shadow.pet-card h5.card-title a.btn {
     color: #fff;
 }
-
+.latest{
+    color: #f3480e;
+    font-weight: bold;
+}
 
 .card-img-top{
     height: 130px;
@@ -84,10 +87,12 @@
 
 .type{
     position: relative;
-    bottom: 30px;
+    bottom: 25px;
 }
 .status {
     font-weight: bold;
+    position: relative;
+    top: 5px;
    
 }
 
@@ -101,7 +106,7 @@
 .card-title{
     margin: 0px;
     position: relative;
-    bottom: 15px;
+    bottom: 20px;
 }
 .adpot-btn{
     position: relative;
@@ -118,13 +123,17 @@
 }
 .pet-name{
     position: relative;
-    top: 5px;
+    
     
 }
 
 .available{
     position: relative;
-    bottom: 45px;
+    bottom: 47px;
+}
+.details-btn{
+    position: relative;
+    top: 15px;
 }
 /* end adopt section */
 
@@ -165,12 +174,12 @@
     border: none;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+    /* transition: transform 0.3s ease-in-out; */
 }
 
-.card.bg-white.mb-2.p-3.p-sm-5:hover {
+/* .card.bg-white.mb-2.p-3.p-sm-5:hover {
     transform: scale(1.05);
-}
+} */
 
 .card.bg-white.mb-2.p-3.p-sm-5 h3 {
     color: #343a40; /* Card title color */

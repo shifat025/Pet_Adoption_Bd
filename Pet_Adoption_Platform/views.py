@@ -20,6 +20,15 @@ def contact(request):
 def about(request):
     return render(request,'about.html')
 
+def all_pet(request, pet_slug = None):
+    data = pets.objects.all()
+    if pet_slug is not None:
+        pet_c = pet_category.objects.get(slug = pet_slug)
+        data = pets.objects.filter(pet_type = pet_c)
+    pet = pet_category.objects.all()
+    return render(request, 'all_pet.html', {'data': data, 'pet': pet})
+
+
 class Details(DetailView):
     model = pets  # assuming 'pets' is the name of the model, change if necessary
     pk_url_kwarg = 'id'

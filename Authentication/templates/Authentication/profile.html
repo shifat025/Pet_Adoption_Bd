@@ -1,35 +1,136 @@
-{% extends "base.html" %}
-{% load static %}
+{% extends "base.html" %} {% load static %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+{% endblock  %}
 
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
-  
-  <div class="col-12">
-    <div class="card m-2 ">
-    <div class="card-body four"> 
-    <a class="mx-3 btn btn-warning text-dark" href="{% url 'adopt_history' %}">Adopt History</a>
 
-    <div class='d-flex justify-content-center align-items-center  gap-5 flex-wrap' >
-      <div>
-      <h1>UserName : {{user.username}} </h1>
-      <h2>First Name : {{user.first_name}}  </h2>
-      <h2>Last Name : {{user.last_name}} </h2>
-      <h2>Email : {{user.email}} </h2>
-      <br>
-      <div class='d-flex justify-content-between'>
-        <div>
-          <a class="mx-3 btn btn-warning text-dark"  aria-current="page" href="{% url 'Profile_update' %}">Update Profile</a>
-        </div>
-        <div>
-          <a class="mx-3 btn btn-danger text-dark"  aria-current="page" href="{% url 'pass_change' %}">Update Password</a>
+<div class="col-12">
+  <div class="card m-2">
+    <div class="card-body four">
+      <div class="container">
+        <div class="main-body">
+          <!-- Breadcrumb -->
+          <nav aria-label="breadcrumb" class="main-breadcrumb">
+            <ol class="breadcrumb">
+              <h class="breadcrumb-item active" aria-current="page"
+                >User Profile</h
+              >
+            </ol>
+          </nav>
+          <!-- /Breadcrumb -->
+
+          <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div
+                    class="d-flex flex-column align-items-center text-center"
+                  >
+                    <img
+                      src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                      alt="Admin"
+                      class="rounded-circle"
+                      width="150"
+                    />
+                    <div class="mt-3">
+                      <h4>{{ user.first_name }} {{ user.last_name }}</h4>
+                      <p class="text-secondary mb-1">
+                        Balance ($ {{ request.user.account.account_balance }})
+                      </p>
+                      <p class="text-muted font-size-sm">{{ user.email }}</p>
+                      <div class="d-flex">
+                        <a
+                          class="btn btn-danger text-dark"
+                          aria-current="page"
+                          href="{% url 'pass_change' %}"
+                          >Update Password</a
+                        >
+                        <a
+                          class="mx-1 btn btn-warning text-dark"
+                          href="{% url 'adopt_history' %}"
+                          >Adopt History</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">User Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{ user.username }}
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">First Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{user.first_name}}
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Last Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{user.last_name}}
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">{{user.email}}</div>
+                  </div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Phone</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">(239) 816-9029</div>
+                  </div>
+                  <hr />
+
+                  <hr />
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Address</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      Bay Area, San Francisco, CA
+                    </div>
+                  </div>
+                  <hr />
+
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <a
+                        class="mx-3 btn btn-warning text-dark"
+                        aria-current="page"
+                        href="{% url 'Profile_update' %}"
+                        >Edit</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-     
-     </div>
- 
-    </div>
     </div>
   </div>
-  
+</div>
 
-{% endblock  %}
+{% include "fotter.html" %} {% endblock %}

@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib import messages 
 
 # Create your views here.
 from django.shortcuts import render, redirect
@@ -26,8 +27,9 @@ def deposit(request):
             user_account = request.user.account
             user_account.account_balance += amount
             user_account.save()
+            messages.success(request, 'Deposit Successfully.')
             send_email(request.user, amount, "Deposite Message", "deposit_mail.html") 
-            return redirect('deposit')
+            return redirect('profile')
            
     else:
         dep_form = forms.AccountForm()

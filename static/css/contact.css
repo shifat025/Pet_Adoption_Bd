@@ -1,6 +1,13 @@
-
+.contact-us{
+  color: red;
+  font-size: 60px;
+  font-weight: bold;
+  position: relative;
+  margin: 0;
+  background-color:#dadadf;
+}
 .contact-b{
-    padding: 40px;
+    padding: 35px;
     background-color: #dadadf;
 }
 .c-box {

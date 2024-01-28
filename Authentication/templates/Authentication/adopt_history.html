@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/card.css' %}">
+{% endblock  %}
 {% block content %}
 {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}"> {% endcomment %}
   
@@ -10,20 +12,24 @@
     <div><h1>Adopt History</h1></div>
     <div class='d-flex justify-content-center align-items-center  gap-5 flex-wrap' >
       {% for post in dataa %}
-      <div class="card" style="width: 18rem;">
-      <img src="{{post.a_pets.image.url}}" class="card-img-top" alt="...">
-      <div class="card-body" >
-        
-        <h5 class="card-title"> <a class="btn btn-warning" href="">{{post.a_pets.name}}</a></h5>
-        <h5 class="card-title">{{post.cars.description | truncatewords:10 }}</h5>
-        <h5 class="card-title">Price : ${{post.a_pets.price}}</h5>
-        <h4>Pet Type : <button class="btn btn-danger  m-2">{{post.a_pets.pet_type}}</button></h4>
-        <h5 class="card-title">Adopt Date : {{post.adopt_date}}</h5>
-        <div class='p-2' style="width:50% ; margin : auto">
-        <a class="btn btn-danger  m-2" href="{% url 'Details' post.a_pets.id %}">Details</a>
+    
+      <div class="card shadow pet-card" style="width: 19rem;">
+        <div>
+          <img src="{{post.a_pets.image.url}}" class="card-img-top" alt="..." style="height:160px">
         </div>
-      </div>
-      </div>
+        <div class="card-body">
+          <h5 class="card-title"><a class="btn p-1 pet-name btn-warning" href="">{{post.a_pets.name}}</a></h5>
+          <p class="card-title">{{post.a_pets.discription | truncatewords:11}} </p>
+          <h5 class="card-title price" style="position: relative; bottom: 23px;">Price: ${{post.a_pets.price}}</h5>
+          <p class='type'>Pet Type : <button class="btn btn-danger p-0 m-0 ">{{post.a_pets.pet_type}}</button></p>
+          <p class="card-title adopt-date" style="position: relative;bottom:40px">Adopt Date : {{post.adopt_date}}</p>
+        
+           <div class='btnn'>
+           <a class="btn btn-danger  m-2" style="position: relative; top: 25px;" href=" {% url 'Details' post.a_pets.id %} ">Review</a>
+          </div> 
+          
+        </div>
+        </div>
     {% endfor %}
     </div>
     </div>

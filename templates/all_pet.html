@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/card.css' %}">
+{% endblock  %}
+
+
+{% block content %}
+<div class="col-12">
+    <div class="card m-2 ">
+      <div class="card-body four">
+        
+        <div id="adopt" class='d-flex justify-content-center'>
+            <a class="btn btn-warning m-2", style="width: 120px;" href="{% url 'all_pet' %}">All</a>
+          {% for b in pet %}
+          <a class="btn btn-warning m-2", style="width: 120px;" href="{% url 'pet_wise_post' b.slug %}">{{b.name}}</a>
+        {% endfor %}
+      </div>
+      <div  class='d-flex justify-content-center'>
+        <h4>Total found : {{data | length}}</h4>
+      </div>
+    <div class='d-flex justify-content-center align-items-center  gap-3 flex-wrap p-2' >
+      
+      {% for pet in data %}
+      
+      <div class="card shadow pet-card" style="width: 19rem;">
+      <div>
+        <img src="{{pet.image.url}}" class="card-img-top" alt="..." style="height:160px">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><a class="btn p-1 pet-name btn-warning" href="">{{pet.name}}</a></h5>
+        <p class="card-title">{{pet.discription | truncatewords:11}} </p>
+        <h5 class="card-title price" style="position: relative; bottom: 23px;">Price: ${{pet.price}}</h5>
+        <p class='type'>Pet Type : <button class="btn btn-danger p-0 m-0 ">{{pet.pet_type}}</button></p>
+        <div class='available'>
+        {% if pet.is_available %}
+        <p class="status aavailable">Status: Available</p>
+        {% else %}
+          <p class="status not-available">Status: Not Available</p>
+        {% endif %}
+        </div>
+      
+         <div class='btnn'>
+         <a class="btn btn-danger  m-2" href="{% url 'Details' pet.id %}">Details</a>
+        </div>
+        
+      </div>
+      </div>
+    {% endfor %}
+    </div>
+    </div>
+  </div>
+  {% include "fotter.html" %}
+{% endblock  %}
