@@ -44,7 +44,7 @@ def sing_up(request):
 
     else:
         sing_up_form = forms.SingForm()
-    return render(request, 'Authentication/register.html', {'form': sing_up_form, 'type': 'sing_up'})
+    return render(request, 'sing.html', {'form': sing_up_form})
 
 class EmailVerificationView(View):
     def get(self, request, uidb64, token):
@@ -65,7 +65,7 @@ class EmailVerificationView(View):
 
 
 class Loginview(LoginView):
-    template_name = 'Authentication/register.html'
+    template_name = 'login.html'
     def get_success_url(self):
         return reverse_lazy('profile')
     def form_valid(self, form):
