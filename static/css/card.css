@@ -121,6 +121,13 @@
     gap: 10px;
     justify-content: center;
 }
+.up-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 10px;
+}
 .pet-name{
     position: relative;
     

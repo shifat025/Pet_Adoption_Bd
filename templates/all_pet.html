@@ -26,7 +26,18 @@
       
       <div class="card shadow pet-card" style="width: 19rem;">
       <div>
-        <img src="{{pet.image.url}}" class="card-img-top" alt="..." style="height:160px">
+        
+        {% if pet.image %}
+        <!-- Display the uploaded image -->
+        <img src="{{ pet.image.url }}" class="card-img-top" alt="Pet Image" style="height:160px">
+      {% else %}
+        <!-- Show an upload form when no image is available -->
+        
+          <div class="up-image" >
+            <a  href="{% url 'pet_edit' pet.id %}"><button type="submit">Upload Image</button></a>
+          </div>
+        
+      {% endif %}
       </div>
       <div class="card-body">
         <h5 class="card-title"><a class="btn p-1 pet-name btn-warning" href="">{{pet.name}}</a></h5>

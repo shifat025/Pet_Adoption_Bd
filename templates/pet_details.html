@@ -10,7 +10,11 @@
     <div class="card m-2 p-img pet-card">
         <div class='d-flex align-items-center justify-content-center card-content'>
             <div class="p-img">
+                {% if details.image %}
                 <img src="{{details.image.url}}" class="card-img-top details-img" alt="...">
+                {% else %}
+                <img src="" alt="Edit and Upload">
+                {% endif %}
             </div>
             <div class="details-info">
                 <h5 class="card-title">{{details.name}}</h5>

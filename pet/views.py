@@ -27,7 +27,7 @@ def pet_edit(request, id):
     posts = models.pets.objects.get(pk=id)
     p_edit_form = forms.Petform(instance=posts)
     if request.method == 'POST':
-        p_edit_form = forms.Petform(request.POST, instance=posts)
+        p_edit_form = forms.Petform(request.POST,request.FILES, instance=posts)
         if p_edit_form.is_valid():
             p_edit_form.save()
             return redirect('home')
