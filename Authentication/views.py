@@ -60,8 +60,7 @@ class EmailVerificationView(View):
             messages.success(request, 'Email verification successful. You can now log in.')
         else:
             messages.error(request, 'Email verification failed.')
-        return HttpResponse("Email verification completed. You can close this tab.")
-
+        return redirect('user_login')
 
 
 class Loginview(LoginView):
