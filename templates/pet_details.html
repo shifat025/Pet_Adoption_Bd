@@ -35,9 +35,11 @@
                     {% endif %}
                 {% endif %}
                 {% if request.user.is_authenticated %}
-                    <div class="adopt-btn">
-                        <a href="{% url 'adopt' id=details.id %}" class="btn btn-warning adopt">Adopt</a>
-                    </div>
+                {% if pet.is_available %}
+                <div class="adopt-btn">
+                    <a href="{% url 'adopt' id=details.id %}" class="btn btn-warning adopt">Adopt</a>
+                </div>
+                {% endif %}
                 {% endif %}
             </div>
         </div>
