@@ -1,11 +1,102 @@
-{% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
+{% extends "base.html" %}
+{% load static %}
 
+{% block css %}
+<!-- Font Icon -->
+<link rel="stylesheet" href="{% static "css/fonts/material-icon/css/material-design-iconic-font.min.css" %}">
 
-<form style="width: 50%; margin: auto" method="post">
-    <h1>Update Your Profile</h1>
-  {% csrf_token %} {{form | crispy}}
+<!-- Main css -->
+<link rel="stylesheet" href="{% static "css/sing.css" %}">
+{% endblock  %}
 
-  <button class="btn btn-warning mb-5">Submit</button>
-</form>
+{% block content %}
+<div class="main s-body">
+    <section class="signup">
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-form">
+                    <h2 class="form-title">Profile Update</h2>
+                    <form method="post" class="register-form" id="update-profile-form">
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+                        
+                        {% for hidden_field in form.hidden_fields %}
+                            {{ hidden_field }}
+                        {% endfor %}
+
+                        <div class="form-group">
+                            <label for="{{ form.username.id_for_label }}"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            {{ form.username }}
+                            {% if form.username.errors %}
+                                {% for error in form.username.errors %}
+                                    <p class="text-danger m-auto pb-2">{{ error }}</p>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="{{ form.first_name.id_for_label }}"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            {{ form.first_name }}
+                            {% if form.first_name.errors %}
+                                {% for error in form.first_name.errors %}
+                                    <p class="text-bg-danger m-auto pb-2">{{ error }}</p>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="{{ form.last_name.id_for_label }}"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            {{ form.last_name }}
+                            {% if form.last_name.errors %}
+                                {% for error in form.last_name.errors %}
+                                    <p class="text-bg-danger m-auto pb-2">{{ error }}</p>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="{{ form.email.id_for_label }}"><i class="zmdi zmdi-email"></i></label>
+                            {{ form.email }}
+                            {% if form.email.errors %}
+                                {% for error in form.email.errors %}
+                                    <p class="text-danger m-auto pb-2">{{ error }}</p>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="{{ form.password1.id_for_label }}"><i class="zmdi zmdi-lock"></i></label>
+                            {{ form.password1 }}
+                            {% if form.password1.errors %}
+                                {% for error in form.password1.errors %}
+                                    <p class="text-danger m-auto pb-2">{{ error }}</p>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="{{ form.password2.id_for_label }}"><i class="zmdi zmdi-lock-outline"></i></label>
+                            {{ form.password2 }}
+                            {% if form.password2.errors %}
+                                {% for error in form.password2.errors %}
+                                    <p class="text-danger m-auto pb-2">{{ error }}</p>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" name="update_profile" id="update_profile" class="form-submit" value="Update Profile"/>
+                        </div>
+                    </form>
+                </div>
+                <div class="signup-image">
+                    <figure><img src="{% static "images/signup-image.jpg" %}" alt="sign up image"></figure>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
 {% include "fotter.html" %}
 {% endblock %}

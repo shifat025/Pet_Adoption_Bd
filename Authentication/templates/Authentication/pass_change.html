@@ -1,14 +1,49 @@
-{% extends 'base.html' %}
-{%  load crispy_forms_tags %}
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+<!-- Font Icon -->
+<link rel="stylesheet" href="{% static "css/fonts/material-icon/css/material-design-iconic-font.min.css" %}">
+
+<!-- Main css -->
+<link rel="stylesheet" href="{% static "css/sing.css" %}">
+{% endblock  %}
+
 {% block content %}
+<div class="main">
+    <section class="sign-in">
+        <div class="container">
+            <div class="signin-content">
+                <!-- ... your existing login form ... -->
 
+                <div class="signin-form">
+                    <h2 class="form-title">Change Password</h2>
+                    <form method="post" class="register-form" id="password-change-form" >
+                        {% csrf_token %}
+                        {{ form.old_password.errors }}
+                        {{ form.new_password1.errors }}
+                        {{ form.new_password2.errors }}
 
-<form style="width:50% ; margin : auto" method="post">
-    <h1>Change Your Password From Here</h1>
-    {% csrf_token %}
-{{form | crispy}}
+                        <div class="form-group">
+                            <label for="{{ form.old_password.id_for_label }}"><i class="zmdi zmdi-lock"></i></label>
+                            <input type="password" name="{{ form.old_password.name }}" id="{{ form.old_password.id_for_label }}" placeholder="Old Password" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.new_password1.id_for_label }}"><i class="zmdi zmdi-lock"></i></label>
+                            <input type="password" name="{{ form.new_password1.name }}" id="{{ form.new_password1.id_for_label }}" placeholder="New Password" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.new_password2.id_for_label }}"><i class="zmdi zmdi-lock"></i></label>
+                            <input type="password" name="{{ form.new_password2.name }}" id="{{ form.new_password2.id_for_label }}" placeholder="Confirm New Password" required/>
+                        </div>
+                        <div class="form-group form-button">
+                            <input type="submit" name="change-password" id="change-password" class="form-submit" value="Change Password"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 
-<button class="btn btn-warning mb-5">Submit</button>
-</form>
-{% include "fotter.html" %}
-{% endblock %}
+{% endblock  %}

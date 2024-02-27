@@ -1,14 +1,89 @@
 {% extends 'base.html' %}
 {%  load crispy_forms_tags %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/add_pet.css' %}">
+{% endblock  %}
 {% block content %}
 
-
-<form style="width:50% ; margin : auto" method="post" enctype="multipart/form-data">
-    
-    {% csrf_token %}
-    {{form | crispy}}
-
-<button class="btn btn-warning mb-5">Submit</button>
-</form>
+  {% if form.non_field_errors %} {% for error in form.non_field_errors %}
+<div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-2" role="alert">
+    <p class="font-bold">Error!</p>
+    <p class="block sm:inline">{{ error }}</p>
+</div>
+{% endfor %} {% endif %}
+  <div class="add-box" >
+    <h2>Add Pet</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for hidden_field in form.hidden_fields %}
+        {{ hidden_field }}
+        {% endfor %}
+        <div class="user-box">
+            {{ form.name }}
+            <label for="{{ form.name.id_for_label }}">Name</label>
+            {% if form.name.errors %}
+                                {% for error in form.name.errors %}
+                                    <p class="text-danger m-auto pb-2">{{ error }}</p>
+                                {% endfor %}
+                            {% endif %}
+        </div>
+        
+        <div class="">
+            <label for="{{ form.pet_type.id_for_label }}">Pet Type</label>
+            {{ form.pet_type }}
+            {% if form.pet_type.errors %}
+                                {% for error in form.pet_type.errors %}
+                                    <p class="text-danger m-auto pb-2">{{ error }}</p>
+                                {% endfor %}
+                            {% endif %}
+        </div>
+        <br>
+        <div class="user-box">
+            {{ form.discription }}
+            <label for="{{ form.discription.id_for_label }}">Description</label>
+            {% if form.discription.errors %}
+                                {% for error in form.discription.errors %}
+                                    <p class="text-danger m-auto pb-2">{{ error }}</p>
+                                {% endfor %}
+                            {% endif %}
+        </div>
+        <br>
+        <div class="user-box">
+            {{ form.image }}
+            <label for="{{ form.image.id_for_label }}">Image</label>
+            {% if form.image.errors %}
+                                {% for error in form.image.errors %}
+                                    <p class="text-danger m-auto pb-2">{{ error }}</p>
+                                {% endfor %}
+                            {% endif %}
+        </div>
+        
+        <div class="user-box">
+            {{ form.price }}
+            <label for="{{ form.price.id_for_label }}">Price</label>
+            {% if form.price.errors %}
+                                {% for error in form.price.errors %}
+                                    <p class="text-danger m-auto pb-2">{{ error }}</p>
+                                {% endfor %}
+                            {% endif %}
+        </div>
+        
+        <div class="">
+            {{ form.is_available }}
+            <label class="form-check-label" for="{{ form.is_available.id_for_label }}">
+                Is available 
+            </label>
+        </div>
+        
+        <button type="submit">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Submit
+        </button>
+    </form>
+</div>
 {% include "fotter.html" %}
 {% endblock %}
