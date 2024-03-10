@@ -4,6 +4,9 @@
 <!-- Font Icon -->
 <link rel="stylesheet" href="{% static "css/fonts/material-icon/css/material-design-iconic-font.min.css" %}">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="{% static "css/material-design-iconic-font.min.css" %}">
+
 <!-- Main css -->
 <link rel="stylesheet" href="{% static "css/sing.css" %}">
 {% endblock  %}
@@ -41,9 +44,11 @@
                             <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
                         </div>
                     </form>
+                    
                     <div class="social-login">
                         <span class="social-label">Or login with</span>
                         <ul class="socials">
+                            <li><a href=""><i class="fa-brands fa-facebook"></i></a></li>
                             <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
                             <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
                             <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
