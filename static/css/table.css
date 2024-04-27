@@ -1,0 +1,25 @@
+ .table-responsive {
+    overflow-x: auto;
+    
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .table th,
+  .table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  .table th {
+    background-color: #4CAF50; /* Dark green background for table headers */
+    color: white; /* White text color for table headers */
+  }
+  .table tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Alternate row background color */
+  }
+  .table tbody tr:hover {
+    background-color: #e0e0e0; /* Light gray background on hover */
+  }

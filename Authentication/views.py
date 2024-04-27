@@ -18,6 +18,12 @@ from pet.models import pets
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import ContactForm
+from django.core.mail import send_mail
+from django.conf import settings 
+
+from .forms import ContactForm
+
 
 # Create your views here.
 def sing_up(request):
@@ -118,3 +124,26 @@ def pass_change(request):
     else:
         form = PasswordChangeForm(user=request.user)
     return render(request, 'Authentication/pass_change.html', {'form' : form})
+
+
+def contact_view(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+            
+            # Send email
+            send_mail(
+                'Message from Website',
+                f'Name: {name}\nEmail: {email}\nMessage: {message}',
+                settings.EMAIL_HOST_USER,
+                ['mdshifat.official.05@gmail.com'],
+                fail_silently=False,
+            )
+            return redirect('contact')  # Redirect to a success page
+    else:
+        form = ContactForm()
+    
+    return render(request, 'contact.html', {'C_form': form})

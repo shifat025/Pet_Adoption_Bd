@@ -3,6 +3,10 @@ from . import views
 
 urlpatterns = [
     path('adopt/<int:id>/', views.adopt, name='adopt'),
-    path('adopt_history',views.adopt_history,name='adopt_history')
-   
+    path('adopt_history',views.adopt_history,name='adopt_history'),
+    path('Basic_subscribe/', views.subscribe_1, name='Basic_subscribe'),
+    path('Basic_subscribe_history/', views.subscribe_info, name='subscribe_his'),
+    path('Standard_subscribe/',views.subscribe_2, name = 'standard_subscribe'),
+    path('Premium_subscribe/',views.subscribe_3, name = 'premium_subscribe'),
+
 ]

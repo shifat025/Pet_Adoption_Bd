@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% load static %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/table.css' %}">
+{% endblock  %}
+{%  load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="table-responsive  p-3 pb-5" style="width: 100%; overflow-x: auto;margin-bottom:300px;">
+    <table class="table table-bordered border-primary">
+      <thead>
+        <tr>
+          <th scope="col">Subscription plan</th>
+          <th scope="col">Price</th>
+          <th scope="col">Month</th>
+          <th scope="col">Total </th>
+          <th scope="col">Subscription Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for key, value in datas.items %}
+          {% for history in value %}
+            <tr>
+              <td>{{ history.subscription }}</td>
+              <td>{{ history.subcribe_price }}</td>
+              <td>{{ history.Month }}</td>
+              <td>{{ history.subcribe_price }} * {{ history.Month }} = {{ history.result }}</td>  <!-- Display the result here -->
+              <td>{{ history.subscription_date }}</td>
+            </tr>
+          {% endfor %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% include "fotter.html" %} 
+{% endblock %}

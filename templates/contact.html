@@ -17,39 +17,40 @@
             <div class="address details">
               <i class="fas fa-map-marker-alt"></i>
               <div class="topic">Address</div>
-              <div class="text-one">Surkhet, NP12</div>
-              <div class="text-two">Birendranagar 06</div>
+              <div class="text-one">Chapai Nawabgonj</div>
+              <div class="text-two">Rajshahi</div>
             </div>
             <div class="phone details">
               <i class="fas fa-phone-alt"></i>
               <div class="topic">Phone</div>
-              <div class="text-one">+0098 9893 5647</div>
-              <div class="text-two">+0096 3434 5678</div>
+              <div class="text-one">+880 1787929436 (whatsapp)</div>
+              {% comment %} <div class="text-two">+0096 3434 5678</div> {% endcomment %}
             </div>
             <div class="email details">
               <i class="fas fa-envelope"></i>
               <div class="topic">Email</div>
-              <div class="text-one">codinglab@gmail.com</div>
-              <div class="text-two">info.codinglab@gmail.com</div>
+              <div class="text-one">shifat58201@gmail.com</div>
+              <div class="text-two">mdshifat.official.05@gmail.com</div>
             </div>
           </div>
           <div class="right-side">
             <div class="topic-text">Send us a message</div>
             <p>Use the form below to get in touch with ours team</p>
-            <form action="#">
+            <form method="post" action="{% url 'contact' %}">
+              {% csrf_token %}
               <div class="input-box">
-                <input type="text" placeholder="Enter your name">
+                  <input type="text" name="{{ C_form.name.name }}" placeholder="Enter your name" required>
               </div>
               <div class="input-box">
-                <input type="text" placeholder="Enter your email">
+                  <input type="email" name="{{ C_form.email.name }}" placeholder="Enter your email" required>
               </div>
               <div class="input-box message-box">
-                <textarea placeholder="Your message"></textarea>
+                  <textarea name="{{ C_form.message.name }}" placeholder="Your message" required></textarea>
               </div>
               <div class="button">
-                <input type="submit" value="Send Now">
+                  <input type="submit" value="Send Now">
               </div>
-            </form>
+          </form>
           </div>
         </div>
       </div>

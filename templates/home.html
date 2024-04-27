@@ -198,8 +198,8 @@
                     </div>
                     {% if request.user.is_authenticated %}
                     <div class="card-footer border-0 p-0">
-                        <a href="#" class="btn sing-btn-basic btn-danger btn-block p-3" style="border-radius: 0;">Subscription</a>
-                    </div>
+                      <a href="{% url 'Basic_subscribe' %}" class="btn sing-btn-basic btn-danger btn-block p-3" style="border-radius: 0;" id="subscriptionButton">Subscription</a>
+                  </div>
                     {% else %}
                     <div class="card-footer border-0 p-0">
                       <a href="#" class="btn sing-btn-basic btn-danger btn-block p-3" style="border-radius: 0;">Signup Now</a>
@@ -228,7 +228,7 @@
                     </div>
                     {% if request.user.is_authenticated %}
                     <div class="card-footer border-0 p-0">
-                        <a href="#" class="btn  sing-btn-standard btn-danger btn-block p-3" style="border-radius: 0;">Subscription</a>
+                        <a href="{% url 'standard_subscribe' %}" class="btn  sing-btn-standard btn-danger btn-block p-3" style="border-radius: 0;">Subscription</a>
                     </div>
                     {% else %}
                     <div class="card-footer border-0 p-0">
@@ -259,7 +259,7 @@
                     </div>
                     {% if request.user.is_authenticated %}
                     <div class="card-footer border-0 p-0">
-                        <a href="#" class="btn sing-btn btn-danger btn-block p-3" style="border-radius: 0;">Subscription</a>
+                        <a href="{% url 'premium_subscribe' %}" class="btn sing-btn btn-danger btn-block p-3" style="border-radius: 0;">Subscription</a>
                     </div>
                     {% else %}
                     <div class="card-footer border-0 p-0">

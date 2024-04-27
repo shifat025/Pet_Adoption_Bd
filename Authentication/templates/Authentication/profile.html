@@ -114,15 +114,13 @@
                   <hr />
 
                   <div class="row">
-                    <div class="col-sm-12">
-                      <a
-                        class="mx-3 btn btn-warning text-dark"
-                        aria-current="page"
-                        href="{% url 'Profile_update' %}"
-                        >Edit</a
-                      >
+                    <div class="col-md-8">
+                        <a class="mx-3 btn btn-warning text-dark" aria-current="page" href="{% url 'Profile_update' %}">Edit</a>
                     </div>
-                  </div>
+                    <div class="col-md-4 mt-3 mt-md-0">
+                        <a class="mx-3 btn btn-primary text-white" aria-current="page" href="{% url 'subscribe_his' %}">Subscription History</a>
+                    </div>
+                </div>
                 </div>
               </div>
             </div>
@@ -132,5 +130,7 @@
     </div>
   </div>
 </div>
+
+
 
 {% include "fotter.html" %} {% endblock %}

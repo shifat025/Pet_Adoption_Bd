@@ -86,6 +86,21 @@
         {% endif %}
     </script>
     {% endfor %}
+    <script>
+      // Function to show the toast
+      function showToast() {
+          var toast = new bootstrap.Toast(document.getElementById('toastContainer'));
+          toast.show();
+      }
+  
+      // Add an event listener to the Subscription button
+      document.getElementById('subscriptionBtn').addEventListener('click', function(event) {
+          // Prevent the default behavior of the link
+          event.preventDefault();
+          // Show the toast
+          showToast();
+      });
+  </script>
    
       {% block content %}{% endblock  %}
       <!-- Remove the container if you want to extend the Footer to full width. -->
