@@ -75,7 +75,7 @@ def subscribe_1(request):
                 # Uncomment and adjust this line based on your email sending implementation
                 # send_email(request.user, price, "Subscription Message", "path/to/subscription_mail.html")
 
-                return redirect('Subscription_his')
+                return redirect('subscription_his')
 
             messages.warning(request, 'You do not have enough balance to subscribe.')
     else:
