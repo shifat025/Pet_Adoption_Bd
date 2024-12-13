@@ -1,17 +1,7 @@
 
-
-/* .cd-img{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
+.all-pets{
+    margin-top: 80px !important;
 }
-.round-pic{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-} */
-
 .c-caption {
     position: absolute;
     top: 50%;
@@ -87,12 +77,12 @@
 
 .type{
     position: relative;
-    bottom: 25px;
+    bottom: 12px;
 }
 .status {
     font-weight: bold;
     position: relative;
-    top: 5px;
+    top: 22px;
    
 }
 
@@ -115,7 +105,7 @@
 }
 .btnn{
     position: relative;
-    bottom: 65px;
+    bottom: 40px;
     display: flex;
     right: 10px;
     gap: 10px;
@@ -138,10 +128,7 @@
     position: relative;
     bottom: 47px;
 }
-.details-btn{
-    position: relative;
-    top: 15px;
-}
+
 /* end adopt section */
 
 

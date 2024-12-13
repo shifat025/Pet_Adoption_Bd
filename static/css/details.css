@@ -1,4 +1,4 @@
-.pet-card {
+/* .pet-card {
     border-radius: 10px;
     overflow: hidden;
 }
@@ -66,4 +66,142 @@
 
 .adopt-btn a:hover {
     background-color: #e67e22;
+} */
+/* Base Layout Styling */
+/* General Card Styling */
+
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    border-radius: 15px;
+}
+
+/* Pet Details Section */
+.pet-card {
+    background: linear-gradient(to top left, #ffcc00, #ff9966);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.pet-image {
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.card-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff6f61;
+}
+
+.status {
+    font-size: 1.1rem;
+}
+
+.status.available {
+    color: green;
+}
+
+.status.not-available {
+    color: red;
+}
+
+.pet-type {
+    font-size: 1rem;
+}
+
+/* Action Buttons */
+.action-buttons a {
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease-in-out;
+}
+
+.action-buttons a:hover {
+    opacity: 0.8;
+}
+
+.add-review {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Reviews Section */
+.review-card {
+    background-color: #f5f5f5;
+}
+
+.review-item {
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.review-item:hover {
+    transform: scale(1.02);
+}
+
+.rating .star {
+    font-size: 1.5rem;
+    color: lightgray;
+    margin-right: 5px;
+}
+
+.rating .star.filled {
+    color: gold;
+}
+
+.comment-text {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Button Hover Effects */
+button:hover, .btn:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .pet-card, .review-card {
+        margin-bottom: 30px;
+    }
+
+    .pet-image {
+        max-height: 200px;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+    }
+
+    .price {
+        font-size: 1.3rem;
+    }
+
+    .add-review form .form-group {
+        margin-bottom: 1.5rem;
+    }
 }

@@ -1,79 +1,113 @@
 {% extends "base.html" %}
 {% load static %}
-{%  load crispy_forms_tags %}
 {% block css %}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="{% static 'css/details.css' %}">
-{% endblock  %}
+{% endblock %}
+
 {% block content %}
+<div class="container py-5">
+    <div class="row">
+        <!-- Pet Details Section -->
+        <div class="col-md-6 mb-5">
+            <div class="card pet-card shadow-lg rounded-lg border-0">
+                <div class="card-body text-center">
+                    <div class="pet-image-container mb-4">
+                        {% if details.image %}
+                            <img src="{{ details.image.url }}" class="img-fluid pet-image rounded mb-3" alt="Pet Image">
+                        {% else %}
+                            <img src="{% static 'img/no-image.jpg' %}" class="img-fluid pet-image rounded mb-3" alt="No Image Available">
+                        {% endif %}
+                    </div>
+                    <h2 class="card-title text-dark mb-3 font-weight-bold">{{ details.name }}</h2>
+                    <p class="card-text text-muted">{{ details.discription }}</p>
+                    <div class="price-status mb-3">
+                        <h4 class="price text-primary">${{ details.price }}</h4>
+                        {% if details.is_available %}
+                            <p class="status available text-success font-weight-bold">Available</p>
+                        {% else %}
+                            <p class="status not-available text-danger font-weight-bold">Not Available</p>
+                        {% endif %}
+                        <p class="pet-type fw-semibold">Pet Type: <button class="btn type p-1 m-0 btn-danger">{{details.pet_type}}</button></p>
+                    </div>
 
-<div class="col-12 p-img">
-    <div class="card m-2 p-img pet-card">
-        <div class='d-flex align-items-center justify-content-center card-content'>
-            <div class="p-img">
-                {% if details.image %}
-                <img src="{{details.image.url}}" class="card-img-top details-img" alt="...">
-                {% else %}
-                <img src="" alt="Edit and Upload">
-                {% endif %}
-            </div>
-            <div class="details-info">
-                <h5 class="card-title">{{details.name}}</h5>
-                <p class="card-text">{{details.discription}}</p>
-                <h5 class="card-title price">Price: ${{details.price}}</h5>
-                {% if details.is_available %}
-                    <p class="status available">Status: Available</p>
-                {% else %}
-                    <p class="status not-available">Status: Not Available</p>
-                {% endif %}
-                <p class="pet-type">Pet Type: <button class="btn type p-1 m-0 btn-danger">{{details.pet_type}}</button></p>
-                {% if request.user.is_authenticated %}
-                    {% if details.user == request.user %}
-                        <div class='btnn'>
-                            <a class="btn btn-primary edit-btn" href="{% url 'pet_edit' details.id %}">Edit</a>
-                            <a class="btn btn-danger delete-btn" href="{% url 'delete' details.id %}">Delete</a>
-                        </div>
+                    {% if request.user.is_authenticated %}
+                        {% if details.user == request.user %}
+                            <div class="action-buttons">
+                                <a class="btn btn-primary m-2" href="{% url 'pet_edit' details.id %}">Edit</a>
+                                <a class="btn btn-danger m-2" href="{% url 'delete' details.id %}">Delete</a>
+                            </div>
+                        {% endif %}
+
+                        {% if details.is_available %}
+                            <a href="{% url 'adopt' id=details.id %}" class="btn btn-warning ">Adopt</a>
+                        {% endif %}
                     {% endif %}
-                {% endif %}
-                {% if request.user.is_authenticated %}
-                {% if pet.is_available %}
-                <div class="adopt-btn">
-                    <a href="{% url 'adopt' id=details.id %}" class="btn btn-warning adopt">Adopt</a>
+                    
                 </div>
-                {% endif %}
-                {% endif %}
             </div>
-        </div>
-    </div>
-</div>
 
-<div class="card m-2">
-    <h5 class="p-3">Total Reviews: {{ reviews | length }}</h5>
-    {% for review in reviews %}
-        <div class="card-body border m-2">
-            <h3>{{ review.user.username }} </h3>
-            <h5>Rating : {{ review.ratting }}</h5>
-            <p>{{ review.comment }}</p>
-        </div>
-    {% endfor %}
-</div>
-{% if request.user.is_authenticated %}
-{% if has_adopted_pet %}
-    <div class="card m-2">
-        <div class="card-body">
+            {% if request.user.is_authenticated %}
+    {% if has_adopted_pet %}
+        <div class="add-review mt-5">
+            <h5 class="mb-3">Add Your Review</h5>
             <form method="post">
-                <h1>Add Review</h1>
                 {% csrf_token %}
-                {{ review_form | crispy }}
-                <button class="btn btn-warning">Submit Review</button>
+                <div class="form-group">
+                    <label for="ratting">Rating</label>
+                    <select name="ratting" id="ratting" class="form-control" required>
+                        <option value="">Choose Rating</option>
+                        {% for value, label in review_form.fields.ratting.choices %}
+                            <option value="{{ value }}">{{ label }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="comment">Comment</label>
+                    <textarea 
+                        name={{ review_form.data.comment }} 
+                        id="comment" 
+                        class="form-control" 
+                        rows="4" 
+                        placeholder="Write your review here..." 
+                        required>{{ review_form.data.comment }}</textarea>
+                </div>
+
+                <button type="submit" class="btn btn-success w-100 mt-3">Submit Review</button>
             </form>
         </div>
-    </div>
+    {% endif %}
 {% endif %}
-{% endif %}
-        </form>
-        {% include "fotter.html" %}
+
+        </div>
+
+        <!-- Reviews Section -->
+        <div class="col-md-6">
+            <div class="card review-card shadow-lg rounded-lg border-0">
+                <div class="card-body">
+                    <h3 class="text-center mb-4 font-weight-bold">Customer Reviews ({{ reviews|length }})</h3>
+                    {% for review in reviews %}
+                        <div class="review-item mb-4 p-4 shadow-sm bg-light rounded-lg">
+                            <div class="review-header d-flex justify-content-between mb-3">
+                                <h6 class="text-dark font-weight-bold">{{ review.user.username }}</h6>
+                                <span class="text-muted">{{ review.created|date:"F j, Y" }}</span>
+                            </div>
+
+                            <div class="rating mb-2">
+                                <div class="stars">
+                                    <span class="star">{{ review.ratting }}</span>
+                                </div>
+                            </div> 
+
+                            <p class="comment-text">{{ review.comment }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-
-{% endblock  %}
+{% include "fotter.html" %}
+{% endblock %}

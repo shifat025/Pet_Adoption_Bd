@@ -2,7 +2,13 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-ratting = [('1','1'),('2','2'),('3','3'),('4','4'),('5','5')]
+ratting = [
+    ('⭐','⭐'),
+    ('⭐⭐','⭐⭐'),
+    ('⭐⭐⭐','⭐⭐⭐'),
+    ('⭐⭐⭐⭐','⭐⭐⭐⭐'),
+    ('⭐⭐⭐⭐⭐','⭐⭐⭐⭐⭐'),
+]
 
 
 class pet_category(models.Model):
@@ -26,6 +32,7 @@ class pets(models.Model):
 class Review(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     pett = models.ForeignKey(pets, on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True)
     ratting = models.CharField( max_length=50, choices=ratting)
     comment = models.TextField()
 

@@ -4,8 +4,9 @@ html {
 body {
   margin:0;
   padding:0;
-  font-family: sans-serif;
-  background: linear-gradient(#141e30, #243b55);
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(145deg, #6A82FB, #FC5C7D); /* Soft gradient */
+  color: #333;
 }
 
 .add-box label {
@@ -19,6 +20,7 @@ body {
   width: 500px;
   padding: 40px;
   margin: 30px;
+  margin-top: 90px !important;
   transform: translate(-50%, 0%);
   background: rgba(0,0,0,.5);
   box-sizing: border-box;
@@ -30,7 +32,7 @@ body {
     padding: 10px;
     font-size: 16px;
     color: #fff;
-    border: 1px solid #ff0000; /* Set the border color to red */
+    border: 1px solid white; /* Set the border color to red */
     border-radius: 5px;
     outline: none;
     background: transparent;

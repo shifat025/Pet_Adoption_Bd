@@ -1,4 +1,5 @@
-
+ 
+  
 .n-logo{
     width: 60px;
     height: 40px;
@@ -20,3 +21,24 @@
 .deposit{
     margin-bottom: 200px;
 }
+.carousel-image {
+    width: 100%;
+    height: 880px; /* Set desired height */
+    object-fit: cover; /* Ensure the image scales without distortion */
+  }
+  
+  .carousel-caption {
+    position: absolute;
+    bottom: 20%;
+  }
+  
+  @media (max-width: 768px) {
+    .carousel-image {
+      height: 400px; /* Adjust height for smaller screens */
+    }
+  
+    .carousel-caption {
+      bottom: 15%;
+    }
+  }
+  

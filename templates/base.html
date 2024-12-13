@@ -15,7 +15,7 @@
 </head>
 <body>
   
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #e3f2fd;">
     <div class="container-fluid">
       <a class="navbar-brand" href="{% url 'home' %}"><img class="n-logo" src="{% static 'images/logo.png' %}" alt=""></a>
       
@@ -101,8 +101,12 @@
           showToast();
       });
   </script>
-   
-      {% block content %}{% endblock  %}
+  
+  <div style="margin-top: 65px;">
+    <!-- Your page content will go here -->
+    {% block content %}{% endblock  %}
+</div>
+      
       <!-- Remove the container if you want to extend the Footer to full width. -->
 
 
