@@ -9,6 +9,9 @@
  <!-- Flaticon Font -->
  <link href="{% static 'lib/flaticon/font/flaticon.css' %}" rel="stylesheet">
 
+ <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
+ <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
+
 {% endblock  %}
 
 {% block content %}
@@ -357,6 +360,91 @@
   </div>
 </div>
 <!-- Team End -->
+
+
+{% comment %} Review Start {% endcomment %}
+
+<div class="container mt-5 pt-5 pb-3" style="margin-bottom:120px;">
+  <h1 class="text-center" style="font-family: 'Poppins', sans-serif; color: #333;">What Our Clients Say</h1>
+  <p class="text-center text-muted mb-5">Hear it from those who’ve worked with us.</p>
+  <div class="swiffy-slider slider-item-show2 slider-item-reveal slider-nav-outside slider-nav-round slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein slider-item-first-visible">
+    <ul class="slider-container py-4">
+        <!-- Review 1 -->
+        <li class="slide-visible">
+            <div class="card shadow h-100 p-4" style="background: #f5f5f5; border-radius: 15px; border: 1px solid #ddd;">
+                <div class="card-body">
+                    <h3 class="card-title h5" style="color: #ffc107; font-size: 2rem;">★★★★★</h3> <!-- Increased font size -->
+                    <blockquote class="blockquote">Amazing experience! Highly recommend to everyone.</blockquote>
+                    <div class="blockquote text-muted">Reviewed on: <cite>2024-12-01</cite></div>
+                </div>
+            </div>
+        </li>
+        <!-- Review 2 -->
+        <li class="slide-visible">
+            <div class="card shadow h-100 p-4" style="background: #f5f5f5; border-radius: 15px; border: 1px solid #ddd;">
+                <div class="card-body">
+                    <h3 class="card-title h5" style="color: #ffc107; font-size: 2rem;">★★★★☆</h3> <!-- Increased font size -->
+                    <blockquote class="blockquote">Great service, but there's room for improvement.</blockquote>
+                    <div class="blockquote text-muted">Reviewed on: <cite>2024-12-02</cite></div>
+                </div>
+            </div>
+        </li>
+        <!-- Review 3 -->
+        <li>
+            <div class="card shadow h-100 p-4" style="background: #f5f5f5; border-radius: 15px; border: 1px solid #ddd;">
+                <div class="card-body">
+                    <h3 class="card-title h5" style="color: #ffc107; font-size: 2rem;">★★★☆☆</h3> <!-- Increased font size -->
+                    <blockquote class="blockquote">It was okay, but not what I expected.</blockquote>
+                    <div class="blockquote text-muted">Reviewed on: <cite>2024-12-03</cite></div>
+                </div>
+            </div>
+        </li>
+        <!-- Review 4 -->
+        <li>
+            <div class="card shadow h-100 p-4" style="background: #f5f5f5; border-radius: 15px; border: 1px solid #ddd;">
+                <div class="card-body">
+                    <h3 class="card-title h5" style="color: #ffc107; font-size: 2rem;">★★☆☆☆</h3> <!-- Increased font size -->
+                    <blockquote class="blockquote">Not satisfied with the quality.</blockquote>
+                    <div class="blockquote text-muted">Reviewed on: <cite>2024-12-04</cite></div>
+                </div>
+            </div>
+        </li>
+        <!-- Review 5 -->
+        <li>
+            <div class="card shadow h-100 p-4" style="background: #f5f5f5; border-radius: 15px; border: 1px solid #ddd;">
+                <div class="card-body">
+                    <h3 class="card-title h5" style="color: #ffc107; font-size: 2rem;">★☆☆☆☆</h3> <!-- Increased font size -->
+                    <blockquote class="blockquote">Terrible experience. Would not recommend.</blockquote>
+                    <div class="blockquote text-muted">Reviewed on: <cite>2024-12-05</cite></div>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <!-- Navigation Buttons -->
+    <button type="button" class="slider-nav" >
+        <i class="bi bi-chevron-left"></i>
+    </button>
+    <button type="button" class="slider-nav slider-nav-next" >
+        <i class="bi bi-chevron-right"></i>
+    </button>
+
+    <!-- Indicators -->
+    <div class="slider-indicators">
+        <button class="active" style="width: 12px; height: 12px; background: #007bff; border-radius: 50%; border: none;"></button>
+        <button style="width: 12px; height: 12px; background: #d3d3d3; border-radius: 50%; border: none;"></button>
+        <button style="width: 12px; height: 12px; background: #d3d3d3; border-radius: 50%; border: none;"></button>
+        <button style="width: 12px; height: 12px; background: #d3d3d3; border-radius: 50%; border: none;"></button>
+        <button style="width: 12px; height: 12px; background: #d3d3d3; border-radius: 50%; border: none;"></button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
 
 {% include "fotter.html" %}
   
