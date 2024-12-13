@@ -1,6 +1,6 @@
 .btn:hover {
     background-color: #ffc107;
-    color: #343a40;
+    /* color: #343a40; */
   }
   
   /* Add transition for smooth effect */
@@ -45,8 +45,4 @@
     color: #343a40;
   }
   
-  /* Add hover effect to Edit button */
-  .btn-warning:hover {
-    background-color: #343a40;
-    color: #ffc107;
-  }
+
