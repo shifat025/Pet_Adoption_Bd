@@ -53,27 +53,20 @@
   </div>
 </div>
 
-
 {% comment %} carousel end {% endcomment %}
 
-{% comment %} <div class='cd-img'>
-  <img class='round-pic' src="{% static 'images/d-11.jpeg' %}" alt="">
-  <img class='round-pic' src="{% static 'images/d-2.jpeg' %}" alt="">
-  <img class='round-pic' src="{% static 'images/c-1.jpeg' %}" alt="">
-  <img class='round-pic' src="{% static 'images/d-3.jpeg' %}" alt="">
-  <img class='round-pic' src="{% static 'images/c-22.jpeg' %}" alt="">
-</div> 
-  {% endcomment %}
+
 {% comment %} Adopt pet card{% endcomment %}
 <div class="col-12">
   <div class="card  mt-5 mb-5 pt-5 pb-5 ">
     <div class="card-body four">
-    <div  class='d-flex justify-content-center'>
+    <div  class='d-flex justify-content-center mb-4'>
       <h2 class="latest">Our latest pet</h2>
     </div>
   <div class='d-flex justify-content-center align-items-center  gap-3 flex-wrap p-2' >
     
     {%  for pet in data|slice:":4" %}
+    <a  href="{% url 'Details' pet.id %}">
     
     <div class="card shadow pet-card" style="width: 19rem;">
     <div>
@@ -96,16 +89,21 @@
        <a class="btn btn-danger  m-2" href="{% url 'Details' pet.id %}">Details</a>
       </div>
       
-      {% comment %} {% if request.user.is_authenticated %}
-      {% if pet.is_available %}
-      <a style="width:50% ; margin : auto" href="{% url 'adopt' id=pet.id %}" class="btn  adpot-btn btn-warning">adopt</a>
-      {% endif %}
-      {% endif %}  {% endcomment %}
     </div>
     </div>
+  </a>
   {% endfor %}
   </div>
+  
+  
   </div>
+  <a href="{% url 'all_pet' %}" class="d-block">
+    <div class="text-center mt-4">
+      <button class="btn btn-custom">See All Pets</button>
+    </div>
+  </a>
+  
+
 </div>
 {% comment %} adopt pet card end {% endcomment %}
 
@@ -439,10 +437,6 @@
     </div>
   </div>
 </div>
-
-
-
-
 
 
 

@@ -42,3 +42,34 @@
     }
   }
   
+
+  /* for se all */
+ /* Button basic style */
+.btn-custom {
+  padding: 8px 20px; /* Button size */
+  font-size: 1rem; /* Font size */
+  background-color: #ff7043; /* Soft orange color */
+  color: white;
+  border: 2px solid #ff7043; /* Orange border */
+  border-radius: 30px; /* Rounded corners */
+  text-transform: uppercase; /* Uppercase text */
+  font-weight: bold;
+  transition: all 0.3s ease; /* Smooth transition for all changes */
+  cursor: pointer; /* Pointer cursor for interactivity */
+}
+
+/* Button hover effect */
+.btn-custom:hover {
+  background-color: white; /* White background on hover */
+  color: #ff7043; /* Orange text on hover */
+  border-color: #ff7043; /* Orange border on hover */
+  transform: scale(1.05); /* Slightly enlarge button */
+}
+
+/* Optional: Button focus style (when clicked) */
+.btn-custom:focus {
+  outline: none; /* Remove the outline for a cleaner design */
+  box-shadow: 0 0 10px rgba(255, 112, 67, 0.5); /* Soft orange shadow */
+}
+
+  /* for se all */
