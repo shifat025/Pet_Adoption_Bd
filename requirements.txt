@@ -31,3 +31,4 @@ soupsieve
 sqlparse
 tzdata
 virtualenv
+paypalrestsdk

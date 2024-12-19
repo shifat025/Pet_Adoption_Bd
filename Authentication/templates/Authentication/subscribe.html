@@ -14,10 +14,10 @@
                     {{ subscribe_form.Month }}
                 </div>
 
-                <!-- Submit Button -->
+                <!-- PayPal Button -->
                 <div class="d-grid">
-                    <button type="button" class="btn btn-warning btn-lg" data-bs-toggle="modal" data-bs-target="#confirmationModal">
-                        <i class="fas fa-check-circle me-2"></i> Confirm Subscription
+                    <button type="submit" class="btn btn-warning btn-lg">
+                        <i class="fas fa-check-circle me-2"></i> Proceed to Payment
                     </button>
                 </div>
             </form>
@@ -25,36 +25,10 @@
     </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="confirmationModalLabel">Confirm Subscription</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Are you sure you want to proceed with the selected subscription duration?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <!-- Confirm button that submits the form -->
-                <button type="button" class="btn btn-warning" id="confirmBtn">Confirm</button>
-            </div>
-        </div>
-    </div>
-</div>
+<!-- PayPal JavaScript SDK -->
 
 
-
-<!-- JavaScript to submit the form when Confirm is clicked -->
-<script>
-    document.getElementById('confirmBtn').addEventListener('click', function() {
-        document.getElementById('subscribeForm').submit();
-    });
-</script>
-
-
+<!-- CSS for Styling -->
 <style>
     body {
         background-color: #f8f9fa;

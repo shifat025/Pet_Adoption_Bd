@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_bootstrap5",
     'Authentication',
-    'transaction',
     'pet',
     'buy',
 ]
@@ -145,3 +144,9 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = env("EMAIL")
 EMAIL_HOST_PASSWORD = env("EMAIL_PASSWORD")
+
+
+# for payment system
+PAYPAL_CLIENT_ID = env("CLIENT_ID")
+PAYPAL_CLIENT_SECRET = env("CLIENT_SECRET")
+PAYPAL_MODE = 'sandbox'  # Change to 'live' for production

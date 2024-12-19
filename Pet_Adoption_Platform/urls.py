@@ -26,7 +26,6 @@ urlpatterns = [
     path('home/', views.home, name = 'home'),
     path('pet_category/<slug:pet_slug>/', views.all_pet, name='pet_wise_post'),
     path('', include('Authentication.urls')),
-    path('', include('transaction.urls')),
     path('', include('pet.urls')),
     path('', include('buy.urls')),
     path('contact/',views.contact, name='contact'),
