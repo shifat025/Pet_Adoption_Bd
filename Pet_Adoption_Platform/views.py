@@ -6,7 +6,7 @@ from buy.models import Adopt
 from django.views.generic import DetailView
 from django.http import HttpResponseForbidden
 
-
+# For home
 def home(request, pet_slug = None):
     data = pets.objects.all()
     if pet_slug is not None:
@@ -15,11 +15,15 @@ def home(request, pet_slug = None):
     pet = pet_category.objects.all()
     return render(request, 'home.html', {'data': data, 'pet': pet})
 
+# for Cotact
 def contact(request):
     return render(request,'contact.html')
+
+# For About
 def about(request):
     return render(request,'about.html')
 
+# For all pet
 def all_pet(request, pet_slug = None):
     data = pets.objects.all()
     if pet_slug is not None:
@@ -29,6 +33,7 @@ def all_pet(request, pet_slug = None):
     return render(request, 'all_pet.html', {'data': data, 'pet': pet})
 
 
+# For pet details
 class Details(DetailView):
     model = pets  # assuming 'pets' is the name of the model, change if necessary
     pk_url_kwarg = 'id'

@@ -1,25 +1,131 @@
- .table-responsive {
-    overflow-x: auto;
-    
-  }
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f7fafc;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
 
-  .table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  .table th,
-  .table td {
-    padding: 12px;
-    text-align: left;
-    border: 1px solid #ddd;
-  }
-  .table th {
-    background-color: #4CAF50; /* Dark green background for table headers */
-    color: white; /* White text color for table headers */
-  }
-  .table tbody tr:nth-child(even) {
-    background-color: #f2f2f2; /* Alternate row background color */
-  }
-  .table tbody tr:hover {
-    background-color: #e0e0e0; /* Light gray background on hover */
-  }
+.history-container {
+  max-width: 1250px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2d3748;
+}
+
+.header p {
+  font-size: 1.1rem;
+  color: #4a5568;
+  margin-top: 10px;
+}
+
+.subscriptions-table {
+  margin-top: 30px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.subscriptions-table table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.subscriptions-table th {
+  background-color: #4a5568;
+  color: #ffffff;
+  text-align: left;
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.subscriptions-table td {
+  padding: 15px;
+  font-size: 0.95rem;
+  color: #2d3748;
+}
+
+.subscriptions-table tbody tr:nth-child(even) {
+  background-color: #f7fafc;
+}
+
+.subscriptions-table tbody tr:hover {
+  background-color: #e2e8f0; /* Lighter shade of grey */
+  transform: translateY(-2px); /* Slight upward movement */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+.subscriptions-table .highlight {
+  font-weight: bold;
+  color: #2d3748;
+}
+
+.subscriptions-table .status-active {
+  color: #38a169;
+  font-weight: bold;
+}
+
+.subscriptions-table .status-expired {
+  color: #e53e3e;
+  font-weight: bold;
+}
+
+.summary-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  padding: 25px;
+  background-color: #edf2f7;
+  border-radius: 10px;
+}
+
+.summary-section .summary-item {
+  text-align: center;
+}
+
+.summary-section .summary-item h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #2d3748;
+}
+
+.summary-section .summary-item p {
+  font-size: 1rem;
+  color: #4a5568;
+}
+
+.footer-link {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.footer-link a {
+  color: #3182ce;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.footer-link a:hover {
+  color: #2b6cb0;
+}

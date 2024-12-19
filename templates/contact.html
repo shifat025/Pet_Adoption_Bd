@@ -3,62 +3,51 @@
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
-{% endblock  %}
+{% endblock %}
 
 {% block content %}
-
-<div class="contact-b " > 
-  <div class="mb-5">
-    <h1 class="d-flex justify-content-center contact-us">Contact Us</h1>
-  </div>
-    <div class="container c-box mb-5">
-        <div class="contact">
-          <div class="left-side">
-            <div class="address details">
-              <i class="fas fa-map-marker-alt"></i>
-              <div class="topic">Address</div>
-              <div class="text-one">Chapai Nawabgonj</div>
-              <div class="text-two">Rajshahi</div>
+<div class="contact-page">
+    <div class="contact-header">
+        <h1>Contact Us</h1>
+        <p>We’re here to help. Get in touch with us!</p>
+    </div>
+    <div class="contact-container">
+        <div class="contact-card">
+            <h2>Get in Touch</h2>
+            <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Visit Us</h3>
+                <p>Chapai Nawabgonj, Rajshahi</p>
             </div>
-            <div class="phone details">
-              <i class="fas fa-phone-alt"></i>
-              <div class="topic">Phone</div>
-              <div class="text-one">+880 1787929436 (whatsapp)</div>
-              {% comment %} <div class="text-two">+0096 3434 5678</div> {% endcomment %}
+            <div class="info-item">
+                <i class="fas fa-phone-alt"></i>
+                <h3>Call Us</h3>
+                <p>+880 1787929436 (WhatsApp)</p>
             </div>
-            <div class="email details">
-              <i class="fas fa-envelope"></i>
-              <div class="topic">Email</div>
-              <div class="text-one">shifat58201@gmail.com</div>
-              <div class="text-two">mdshifat.official.05@gmail.com</div>
+            <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <h3>Email Us</h3>
+                <p>shifat58201@gmail.com</p>
+                <p>mdshifat.official.05@gmail.com</p>
             </div>
-          </div>
-          <div class="right-side">
-            <div class="topic-text">Send us a message</div>
-            <p>Use the form below to get in touch with ours team</p>
-            <form method="post" action="{% url 'contact' %}">
-              {% csrf_token %}
-              <div class="input-box">
-                  <input type="text" name="{{ C_form.name.name }}" placeholder="Enter your name" required>
-              </div>
-              <div class="input-box">
-                  <input type="email" name="{{ C_form.email.name }}" placeholder="Enter your email" required>
-              </div>
-              <div class="input-box message-box">
-                  <textarea name="{{ C_form.message.name }}" placeholder="Your message" required></textarea>
-              </div>
-              <div class="button">
-                  <input type="submit" value="Send Now">
-              </div>
-          </form>
-          </div>
         </div>
-      </div>
+        <div class="contact-form">
+            <h2>Drop Us a Line</h2>
+            <form method="post" action="{% url 'contact' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" name="{{ C_form.name.name }}" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="{{ C_form.email.name }}" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="{{ C_form.message.name }}" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
 </div>
-  
-
-  
 {% include "fotter.html" %}
-{% endblock  %}
-
-
+{% endblock %}

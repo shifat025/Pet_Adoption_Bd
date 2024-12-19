@@ -1,19 +1,21 @@
-{% load static %} {% block css %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" />
+{% load static %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-{% endblock %} {% block fotter %}
+{% endblock %}
+{% block footer %}
 <footer
   class="text-center text-lg-start text-white"
-  style="background-color: #1c2331"
+  style="background-color: #2c3e50; padding-top: 30px; padding-bottom: 30px"
 >
   <!-- Section: Social media -->
   <section
-    class="d-flex justify-content-between p-4"
-    style="background-color: #6351ce"
+    class="d-flex justify-content-center p-4"
+    style="background-color: #8e44ad"
   >
     <!-- Left -->
     <div class="me-5">
-      <span>Get connected with us on social networks:</span>
+      <span>Connect with us on social media:</span>
     </div>
     <!-- Left -->
 
@@ -42,21 +44,21 @@
   </section>
   <!-- Section: Social media -->
 
-  <!-- Section: Links  -->
-  <section class="">
+  <!-- Section: Links -->
+  <section>
     <div class="container text-center text-md-start mt-5">
       <!-- Grid row -->
       <div class="row mt-3">
         <!-- Grid column -->
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           <!-- Content -->
-          <h6 class="text-uppercase fw-bold">Company name</h6>
+          <h6 class="text-uppercase fw-bold">Pet Adopt BD</h6>
           <hr
             class="mb-4 mt-0 d-inline-block mx-auto"
             style="width: 60px; background-color: #7c4dff; height: 2px"
           />
           <p>
-            <img class="f-logo" src="{% static 'images/logo.png' %}" alt="" />
+            <img class="f-logo" src="{% static 'images/logo.png' %}" alt="Logo" />
           </p>
         </div>
         <!-- Grid column -->
@@ -78,7 +80,7 @@
         <!-- Grid column -->
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
-          <h6 class="text-uppercase fw-bold">Useful links</h6>
+          <h6 class="text-uppercase fw-bold">Useful Links</h6>
           <hr
             class="mb-4 mt-0 d-inline-block mx-auto"
             style="width: 60px; background-color: #7c4dff; height: 2px"
@@ -106,24 +108,22 @@
             class="mb-4 mt-0 d-inline-block mx-auto"
             style="width: 60px; background-color: #7c4dff; height: 2px"
           />
-          <p><i class="fas fa-home mr-3"></i> Dhaka,Bangladesh</p>
+          <p><i class="fas fa-home mr-3"></i> Dhaka, Bangladesh</p>
           <p><i class="fas fa-envelope mr-3"></i> info@example.com</p>
-          <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-          <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+          <p><i class="fas fa-phone mr-3"></i> +01 234 567 88</p>
+          <p><i class="fas fa-print mr-3"></i> +01 234 567 89</p>
         </div>
         <!-- Grid column -->
       </div>
       <!-- Grid row -->
     </div>
   </section>
-  <!-- Section: Links  -->
+  <!-- Section: Links -->
+
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-    &copy; 2024 Pet Adopt BD.All rights reserved.
+    &copy; 2024 Pet Adopt BD. All rights reserved.
   </div>
   <!-- Copyright -->
 </footer>
-<!-- Footer -->
-
 {% endblock %}
-

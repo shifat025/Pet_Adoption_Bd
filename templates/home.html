@@ -58,129 +58,128 @@
 
 {% comment %} Adopt pet card{% endcomment %}
 <div class="col-12">
-  <div class="card  mt-5 mb-5 pt-5 pb-5 ">
+  <div class="mt-5 mb-5 pt-5 pb-5">
     <div class="card-body four">
-    <div  class='d-flex justify-content-center mb-4'>
-      <h2 class="latest">Our latest pet</h2>
-    </div>
-  <div class='d-flex justify-content-center align-items-center  gap-3 flex-wrap p-2' >
-    
-    {%  for pet in data|slice:":4" %}
-    <a  href="{% url 'Details' pet.id %}">
-    
-    <div class="card shadow pet-card" style="width: 19rem;">
-    <div>
-      <img src="{{pet.image.url}}" class="card-img-top" alt="..." style="height:160px">
-    </div>
-    <div class="card-body">
-      <h5 class="card-title"><a class="btn p-1 pet-name btn-warning" href="">{{pet.name}}</a></h5>
-      <p class="card-title">{{pet.discription | truncatewords:10}} </p>
-      <h5 class="card-title price" style="position: relative; bottom: 18px;">Price: ${{pet.price}}</h5>
-      <p class='type'>Pet Type : <button class="btn btn-danger p-0 m-0 ">{{pet.pet_type}}</button></p>
-      <div class='available'>
-      {% if pet.is_available %}
-      <p class="status aavailable">Status: Available</p>
-      {% else %}
-        <p class="status not-available">Status: Not Available</p>
-      {% endif %}
+      <div class="d-flex justify-content-center mb-4">
+        <h2 class="latest">Our latest pet</h2>
       </div>
-    
-       <div class='btnn'>
-       <a class="btn btn-danger  m-2" href="{% url 'Details' pet.id %}">Details</a>
+      <div class="row justify-content-center" style="max-width: 1280px; margin: 0 auto;">
+        {% for pet in data|slice:":4" %}
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="{% url 'Details' pet.id %}">
+            <div class="card shadow pet-card" style="width: 100%;">
+              <div>
+                <img src="{{pet.image.url}}" class="card-img-top" alt="..." style="height:160px">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">
+                  <a class="btn p-1 pet-name btn-warning" href="#">{{pet.name}}</a>
+                </h5>
+                <p class="card-title">{{pet.discription | truncatewords:10}}</p>
+                <h5 class="card-title price" style="position: relative; bottom: 18px;">Price: ${{pet.price}}</h5>
+                <p class="type">Pet Type: 
+                  <button class="btn btn-danger p-0 m-0">{{pet.pet_type}}</button>
+                </p>
+                <div class="available">
+                  {% if pet.is_available %}
+                  <p class="status available">Status: Available</p>
+                  {% else %}
+                  <p class="status not-available">Status: Not Available</p>
+                  {% endif %}
+                </div>
+                <div class="btnn">
+                  <a class="btn btn-danger m-2" href="{% url 'Details' pet.id %}">Details</a>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
       </div>
-      
+      <a href="{% url 'all_pet' %}" class="d-block">
+        <div class="text-center mt-4">
+          <button class="btn btn-custom">See All Pets</button>
+        </div>
+      </a>
     </div>
-    </div>
-  </a>
-  {% endfor %}
   </div>
-  
-  
-  </div>
-  <a href="{% url 'all_pet' %}" class="d-block">
-    <div class="text-center mt-4">
-      <button class="btn btn-custom">See All Pets</button>
-    </div>
-  </a>
-  
-
 </div>
+
 {% comment %} adopt pet card end {% endcomment %}
 
 {% comment %} Our Services start {% endcomment %}
-<div class="container-fluid bg-light pt-5">
+<div class="container-fluid ">
   <div class="container py-5">
-      <div class="d-flex flex-column text-center mb-5">
-          <h2 class="our-services mb-3">Our Services</h2>
-          <h1 class="display-4 p-service m-0" style=""><span class="premiums">Premium</span> Pet Services</h1>
+    <div class="d-flex flex-column text-center mb-5">
+      <h2 class="our-services mb-3">Our Services</h2>
+      <h1 class="display-4 p-service m-0">
+        <span class="premiums">Premium</span> Pet Services
+      </h1>
+    </div>
+    <div class="row pb-3 main-container">
+      <!-- First Row -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card bg-white mb-2 p-3 p-sm-5 equal-height-card">
+          <h3 class="flaticon-house display-3 font-weight-normal text-secondary mb-3"></h3>
+          <h3 class="mb-3">Pet Boarding</h3>
+          <p>{{"Leave town worry-free with our reliable and caring pet boarding services. Your furry friends will enjoy a cozy, secure environment, complete with personalized attention and daily exercise. Trust us to provide a home away from home, ensuring your pets are happy and safe while you're away." | truncatewords:11 }}</p>
+        </div>
       </div>
-      <div class="row pb-3">
-          <div class="col-md-6 col-lg-4 mb-4">
-              <div class="card bg-white mb-2 p-3 p-sm-5">
-                  <h3 class="flaticon-house display-3 font-weight-normal text-secondary mb-3"></h3>
-                  <h3 class="mb-3">Pet Boarding</h3>
-                  <p> {{"Leave town worry-free with our reliable and caring pet boarding services. Your furry friends will enjoy a cozy, secure environment, complete with personalized attention and daily exercise. Trust us to provide a home away from home, ensuring your pets are happy and safe while you're away." | truncatewords:11 }} </p>
-                  {% comment %} <a class="text-uppercase font-weight-bold" href="#">Read More</a> {% endcomment %}
-              </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4">
-              <div class="card bg-white mb-2 p-3 p-sm-5">
-                  <h3 class="flaticon-food display-3 font-weight-normal text-secondary mb-3"></h3>
-                  <h3 class="mb-3">Pet Feeding</h3>
-                  <p>{{"Busy schedule? We've got your pets covered. Our reliable and caring pet feeding services ensure your furry friends receive their meals on time, every time. Convenience meets care for happy and healthy pets." | truncatewords:13}}</p>
-                  {% comment %} <a class="text-uppercase font-weight-bold" href="#">Read More</a> {% endcomment %}
-              </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4">
-              <div class="card bg-white mb-2 p-3 p-sm-5">
-                  <h3 class="flaticon-grooming display-3 font-weight-normal text-secondary mb-3"></h3>
-                  <h3 class="mb-3">Pet Grooming</h3>
-                  <p>{{"Unleash your pet's best look! Our professional grooming pampers your furry friend with expert care. From baths to stylish trims, we keep them looking and feeling fabulous. Choose us for a tail-wagging grooming experience!" | truncatewords:11}} </p>
-                  {% comment %} <a class="text-uppercase font-weight-bold" href="#">Read More</a> {% endcomment %}
-              </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4">
-              <div class="card bg-white mb-2 p-3 p-sm-5">
-                  <h3 class="flaticon-cat display-3 font-weight-normal text-secondary mb-3"></h3>
-                  <h3 class="mb-3">Pet Training</h3>
-                  <p>{{"Shape a well-behaved and happy companion with our expert training. From basic commands to specific challenges, we tailor sessions for your pet's best results. Trust us for a harmonious relationship with your furry friend." | truncatewords:11}}</p>
-                  {% comment %} <a class="text-uppercase font-weight-bold" href="#">Read More</a> {% endcomment %}
-              </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4">
-              <div class="card bg-white mb-2 p-3 p-sm-5">
-                  <h3 class="flaticon-dog display-3 font-weight-normal text-secondary mb-3"></h3>
-                  <h3 class="mb-3">Pet Exercise</h3>
-                  <p>{{ "Keep your pets active and healthy with our tailored exercise programs. Our experienced team ensures your furry friends get the physical activity they need, promoting overall well-being. Whether it's a brisk walk or playful activities, we customize routines to suit your pet's energy levels. Choose us for a happy and fit companion." | truncatewords:11 }}</p>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card bg-white mb-2 p-3 p-sm-5 equal-height-card">
+          <h3 class="flaticon-food display-3 font-weight-normal text-secondary mb-3"></h3>
+          <h3 class="mb-3">Pet Feeding</h3>
+          <p>{{"Busy schedule? We've got your pets covered. Our reliable and caring pet feeding services ensure your furry friends receive their meals on time, every time. Convenience meets care for happy and healthy pets." | truncatewords:13}}</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card bg-white mb-2 p-3 p-sm-5 equal-height-card">
+          <h3 class="flaticon-grooming display-3 font-weight-normal text-secondary mb-3"></h3>
+          <h3 class="mb-3">Pet Grooming</h3>
+          <p>{{"Unleash your pet's best look! Our professional grooming pampers your furry friend with expert care. From baths to stylish trims, we keep them looking and feeling fabulous. Choose us for a tail-wagging grooming experience!" | truncatewords:11}} </p>
+        </div>
+      </div>
 
-                  {% comment %} <a class="text-uppercase font-weight-bold" href="#">Read More</a> {% endcomment %}
-              </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4">
-              <div class="card bg-white mb-2 p-3 p-sm-5">
-                  <h3 class="flaticon-vaccine display-3 font-weight-normal text-secondary mb-3"></h3>
-                  <h3 class="mb-3">Pet Treatment</h3>
-                  <p>{{"Your pet's well-being is our priority. From routine check-ups to specialized care, trust us for compassionate and professional pet treatment services. Keep your furry friend healthy and happy with our dedicated care." | truncatewords:11}}</p>
-                  {% comment %} <a class="text-uppercase font-weight-bold" href="#">Read More</a> {% endcomment %}
-              </div>
-          </div>
+      <!-- Second Row -->
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card bg-white mb-2 p-3 p-sm-5 equal-height-card">
+          <h3 class="flaticon-cat display-3 font-weight-normal text-secondary mb-3"></h3>
+          <h3 class="mb-3">Pet Training</h3>
+          <p>{{"Shape a well-behaved and happy companion with our expert training. From basic commands to specific challenges, we tailor sessions for your pet's best results. Trust us for a harmonious relationship with your furry friend." | truncatewords:11}}</p>
+        </div>
       </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card bg-white mb-2 p-3 p-sm-5 equal-height-card">
+          <h3 class="flaticon-dog display-3 font-weight-normal text-secondary mb-3"></h3>
+          <h3 class="mb-3">Pet Exercise</h3>
+          <p>{{ "Keep your pets active and healthy with our tailored exercise programs. Our experienced team ensures your furry friends get the physical activity they need, promoting overall well-being. Whether it's a brisk walk or playful activities, we customize routines to suit your pet's energy levels. Choose us for a happy and fit companion." | truncatewords:11 }}</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card bg-white mb-2 p-3 p-sm-5 equal-height-card">
+          <h3 class="flaticon-vaccine display-3 font-weight-normal text-secondary mb-3"></h3>
+          <h3 class="mb-3">Pet Treatment</h3>
+          <p>{{"Your pet's well-being is our priority. From routine check-ups to specialized care, trust us for compassionate and professional pet treatment services. Keep your furry friend healthy and happy with our dedicated care." | truncatewords:11}}</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
 
 {% comment %} Our Services end {% endcomment %}
 
 
 {% comment %} Peiceing start {% endcomment %}
 <div class='pricebody '>
-  <div class="container-fluid price-bg bg-light pt-5 pb-4" style="background-color: rgb(245, 245, 245) !important; ">
+  <div class="container-fluid price-bg   pb-4" >
     <div class="container  py-5">
         <div class="d-flex flex-column text-center mb-5">
             <h2 class="pricing-plan mb-3">Pricing Plan</h2>
             <h1 id="subscription" class="display-4 chose m-0">Choose the <span class="best-price">Best Price</span></h1>
         </div>
-        <div class="row">
-            <div class="col-lg-4 mb-4">
+        <div class="row main-container">
+            <div class="col-lg-4 mb-4 ">
                 <div  class="card price-card border-0">
                     <div class="card-header position-relative border-0 p-0 mb-4">
                         <img class="card-img-top" src="{% static "images/price-1.jpg" %}" alt="">
@@ -280,12 +279,12 @@
 
 <!-- Team Start -->
 <div class="team-member">
-  <div class="container mt-5 pt-5 pb-3">
+  <div class="container mt-4  pb-3">
     <div class="d-flex flex-column text-center mb-5">
       <h4 class="text-secondary mb-3">Team Member</h4>
       <h1 class="display-4 m-0">Meet Our <span class="text-primary">Team Member</span></h1>
     </div>
-    <div class="row">
+    <div class="row main-container">
       <div class="col-lg-3 col-md-6" >
         <div class="team-card  position-relative overflow-hidden border-0 mb-4">
           <img class="card-img-top" style="height:299.2px" src="{% static "images/team-1.jpg"  %}" alt="">
@@ -365,8 +364,8 @@
 <div class="container mt-5 pt-5 pb-3" style="margin-bottom:120px;">
   <h1 class="text-center" style="font-family: 'Poppins', sans-serif; color: #333;">What Our Clients Say</h1>
   <p class="text-center text-muted mb-5">Hear it from those who’ve worked with us.</p>
-  <div class="swiffy-slider slider-item-show2 slider-item-reveal slider-nav-outside slider-nav-round slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein slider-item-first-visible">
-    <ul class="slider-container py-4">
+  <div class="main-container swiffy-slider slider-item-show2 slider-item-reveal slider-nav-outside slider-nav-round slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein slider-item-first-visible">
+    <ul class="slider-container py-4 ">
         <!-- Review 1 -->
         <li class="slide-visible">
             <div class="card shadow h-100 p-4" style="background: #f5f5f5; border-radius: 15px; border: 1px solid #ddd;">

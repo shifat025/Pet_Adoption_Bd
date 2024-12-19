@@ -1,7 +1,9 @@
+.main-container {
+    max-width: 1300px;
+    margin: 0 auto; /* Centers the container */
+    padding: 0 15px; /* Optional: Adds some padding for smaller screens */
+  }
 
-.all-pets{
-    margin-top: 80px !important;
-}
 .c-caption {
     position: absolute;
     top: 50%;
@@ -429,47 +431,3 @@
 
 /* team card end */
 
-.fotter{
-    background-color: blue;
-    
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-  }
-
-  .footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .footer-links li {
-    display: inline-block;
-    margin: 0 15px;
-  }
-
-  .footer-links a {
-    text-decoration: none;
-    color: #fff;
-  }
-
-  .footer-social-icons {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0 0 0;
-  }
-
-  .footer-social-icons li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-
-  .footer-social-icons a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 20px;
-  }

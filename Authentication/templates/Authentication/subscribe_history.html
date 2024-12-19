@@ -1,36 +1,72 @@
-{% extends 'base.html' %} {% load static %}
+{% extends 'base.html' %}
+{% load static %}
+
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/table.css' %}">
-{% endblock  %}
-{%  load crispy_forms_tags %}
+<link rel="stylesheet" href="{% static 'css/table.css' %}">
+{% endblock %}
+
 
 {% block content %}
+<div class="history-container">
+  <div class="header">
+    <h1>Subscription History</h1>
+    <p>Review your subscription details, pricing, and status below.</p>
+  </div>
 
-<div class="table-responsive  p-3 pb-5" style="width: 100%; overflow-x: auto;margin-bottom:300px;">
-    <table class="table table-bordered border-primary">
+  <div class="subscriptions-table">
+    <table>
       <thead>
         <tr>
-          <th scope="col">Subscription plan</th>
-          <th scope="col">Price</th>
-          <th scope="col">Month</th>
-          <th scope="col">Total </th>
-          <th scope="col">Subscription Date</th>
+          <th>Plan Name</th>
+          <th>Price (USD)</th>
+          <th>Months</th>
+          <th>Total Paid</th>
+          <th>Subscription Date</th>
+          <th>Status</th>
         </tr>
       </thead>
       <tbody>
         {% for key, value in datas.items %}
           {% for history in value %}
             <tr>
-              <td>{{ history.subscription }}</td>
-              <td>{{ history.subcribe_price }}</td>
+              <td class="highlight">{{ history.subscription }}</td>
+              <td>${{ history.subcribe_price }}</td>
               <td>{{ history.Month }}</td>
-              <td>{{ history.subcribe_price }} * {{ history.Month }} = {{ history.result }}</td>  <!-- Display the result here -->
+              <td>${{ history.result }}</td>
               <td>{{ history.subscription_date }}</td>
+              <td>
+                {% comment %} {% if history.status == 'active' %} {% endcomment %}
+                  <span class="status-active">Active</span>
+                {% comment %} {% else %}
+                  <span class="status-expired">Expired</span>
+                {% endif %} {% endcomment %}
+              </td>
             </tr>
           {% endfor %}
         {% endfor %}
       </tbody>
     </table>
   </div>
-{% include "fotter.html" %} 
+
+  <div class="summary-section">
+    <div class="summary-item">
+      <h3>${{ total_spent }}</h3>
+      <p>Total Spent</p>
+    </div>
+    <div class="summary-item">
+      <h3>{{ active_subscriptions }}</h3>
+      <p>Active Subscriptions</p>
+    </div>
+    <div class="summary-item">
+      <h3>{{ expired_subscriptions }}</h3>
+      <p>Expired Subscriptions</p>
+    </div>
+  </div>
+
+  <div class="footer-link">
+    <p>Need help? <a href="#">Contact Support</a></p>
+  </div>
+</div>
+
+{% include "fotter.html" %}
 {% endblock %}

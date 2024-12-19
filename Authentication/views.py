@@ -84,15 +84,16 @@ class Loginview(LoginView):
         context['type'] = 'Login'
         return context
 
+# For Logout
 @login_required
 def user_logout(request):
     logout(request)
     messages.success(request,'Logged Out Successfully')
     return redirect('user_login')
 
+# For Profile
 @login_required
 def profile(request):
-     
     return render(request,'Authentication/profile.html' )
 
 

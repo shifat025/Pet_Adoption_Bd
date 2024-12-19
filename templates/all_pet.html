@@ -1,93 +1,69 @@
-{% extends "base.html" %} {% load static %} {% block css %}
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
 <link rel="stylesheet" href="{% static 'css/card.css' %}" />
-{% endblock %} {% block content %}
-<div class="col-12">
-  <div class="card m-2 all-pets">
-    <div class="card-body four">
-      <div id="adopt" class="d-flex justify-content-center">
-        <a
-          class="btn btn-warning m-2"
-          ,
-          style="width: 120px"
-          href="{% url 'all_pet' %}"
-          >All</a
-        >
-        {% for b in pet %}
-        <a
-          class="btn btn-warning m-2"
-          ,
-          style="width: 120px"
-          href="{% url 'pet_wise_post' b.slug %}"
-          >{{b.name}}</a
-        >
-        {% endfor %}
-      </div>
-      <div class="d-flex justify-content-center">
-        <h4>Total found : {{data | length}}</h4>
-      </div>
-      <div
-        class="d-flex justify-content-center align-items-center gap-3 flex-wrap p-2"
-      >
-        {% for pet in data %}
-        <a  href="{% url 'Details' pet.id %}">
 
-        <div class="card shadow pet-card" style="width: 19rem">
-          <div>
-            {% if pet.image %}
-            <!-- Display the uploaded image -->
-            <img
-              src="{{ pet.image.url }}"
-              class="card-img-top"
-              alt="Pet Image"
-              style="height: 160px"
-            />
-            {% else %}
-            <!-- Show an upload form when no image is available -->
-
-            <div class="up-image">
-              <a href="{% url 'pet_edit' pet.id %}"
-                ><button type="submit">Upload Image</button></a
-              >
-            </div>
-
-            {% endif %}
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">
-              <a class="btn p-1 pet-name btn-warning" href="">{{pet.name}}</a>
-            </h5>
-            <p class="card-title">{{pet.discription | truncatewords:10}}</p>
-            <h5
-              class="card-title price"
-              style="position: relative; bottom: 18px"
-            >
-              Price: ${{pet.price}}
-            </h5>
-            <p class="type fw-semibold">
-              Pet Type :
-              <button class="btn btn-danger pt-0 pb-0 m-0">
-                {{pet.pet_type}}
-              </button>
-            </p>
-            <div class="available">
-              {% if pet.is_available %}
-              <p class="status aavailable">Status: Available</p>
-              {% else %}
-              <p class="status not-available">Status: Not Available</p>
-              {% endif %}
-            </div>
-
-            <div class="btnn">
-              <a class="btn btn-danger m-2" href="{% url 'Details' pet.id %}"
-                >Details</a
-              >
-            </div>
-          </div>
+{% endblock %}
+{% block content %}
+<div class="">
+  <div class="col-12 main-container">
+    <div class="m-2 all-pets">
+      <div class="card-body four">
+        <div id="adopt" class="d-flex justify-content-center flex-wrap">
+          <a class="btn btn-warning m-2" style="width: 120px" href="{% url 'all_pet' %}">All</a>
+          {% for b in pet %}
+          <a class="btn btn-warning m-2" style="width: 120px" href="{% url 'pet_wise_post' b.slug %}">{{ b.name }}</a>
+          {% endfor %}
         </div>
-      </a>
-        {% endfor %}
+        <div class="d-flex justify-content-center">
+          <h4>Total found: {{ data|length }}</h4>
+        </div>
+        <div class="row">
+          {% for pet in data %}
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <a href="{% url 'Details' pet.id %}">
+              <div class="card shadow pet-card" style="width: 100%;">
+                <div>
+                  {% if pet.image %}
+                  <img src="{{ pet.image.url }}" class="card-img-top" alt="Pet Image" style="height: 160px" />
+                  {% else %}
+                  <div class="up-image">
+                    <a href="{% url 'pet_edit' pet.id %}">
+                      <button type="submit">Upload Image</button>
+                    </a>
+                  </div>
+                  {% endif %}
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <a class="btn p-1 pet-name btn-warning" href="#">{{ pet.name }}</a>
+                  </h5>
+                  <p class="card-title">{{ pet.discription|truncatewords:10 }}</p>
+                  <h5 class="card-title price" style="position: relative; bottom: 18px">
+                    Price: ${{ pet.price }}
+                  </h5>
+                  <p class="type fw-semibold">
+                    Pet Type:
+                    <button class="btn btn-danger pt-0 pb-0 m-0">{{ pet.pet_type }}</button>
+                  </p>
+                  <div class="available">
+                    {% if pet.is_available %}
+                    <p class="status available">Status: Available</p>
+                    {% else %}
+                    <p class="status not-available">Status: Not Available</p>
+                    {% endif %}
+                  </div>
+                  <div class="btnn">
+                    <a class="btn btn-danger m-2" href="{% url 'Details' pet.id %}">Details</a>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
       </div>
     </div>
   </div>
-  {% include "fotter.html" %} {% endblock %}
-</div>
+  {% include "fotter.html" %}
+{% endblock %}

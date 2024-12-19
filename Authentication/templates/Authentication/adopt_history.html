@@ -2,45 +2,70 @@
 {% load static %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/card.css' %}">
-{% endblock  %}
-{% block content %}
-{% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}"> {% endcomment %}
-  
-  <div class="col-12">
-    <div class="card m-2 ">
-    <div class="card-body four"> 
-    <div><h1>Adopt History</h1></div>
-    <div class='d-flex justify-content-center align-items-center  gap-3 flex-wrap p-2' >
-      {% for post in dataa %}
-    
-      <div class="card shadow pet-card" style="width: 19rem;">
-        <div>
-          <img src="{{post.a_pets.image.url}}" class="card-img-top" alt="..." style="height:160px">
-        </div>
-        <div class="card-body">
-          <h5 class="card-title"><a class="btn p-1 pet-name btn-warning" href="">{{post.a_pets.name}}</a></h5>
-          <p class="card-title">{{post.a_pets.discription | truncatewords:11}} </p>
-          <h5 class="card-title price" style="position: relative; bottom: 18px;">Price: ${{post.a_pets.price}}</h5>
-          <p class="type">
-            <span style="font-weight: 600;">Pet Type:</span>
-            <button class="btn btn-danger p-0 m-0" style="margin-left: 5px;">{{ post.a_pets.pet_type }}</button>
-        </p>
-        
-          <p class="card-title adopt-date d-flex" style="position: relative; bottom: 25px;">
-            <span style="font-weight: 600;">Adopt Date:</span> 
-            <span style="margin-left: 5px;">{{ post.adopt_date }}</span>
-        </p>
-        
-           <div class='btnn'>
-           <a class="btn btn-danger  m-2" style="position: relative; top: 25px;" href=" {% url 'Details' post.a_pets.id %} ">Review</a>
-          </div> 
-          
-        </div>
-        </div>
-    {% endfor %}
-    </div>
-    </div>
-  </div>
-  {% include "fotter.html" %}
+{% comment %} {% endblock %} {% block css %} {% endcomment %}
+<style>
+    /* Body and General Styling */
+    .review-card {
+        font-family: 'Montserrat', sans-serif;
+        background: linear-gradient(to right, #f1f2f6, #dfe4ea);
+        margin: 0 auto;
+        padding: 0;
+    }
 
-{% endblock  %}
+    .custom-wrapper {
+        max-width: 1200px;
+        margin: 0 auto; /* Center the content horizontally */
+        padding: 50px;
+        padding-bottom: 90px;
+    }
+
+    h1 {
+        font-size: 42px;
+        color: #2f3640;
+        text-align: center;
+        margin-bottom: 40px;
+        font-weight: 800;
+    }
+  
+</style>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="col-12">
+    <div class="review-card">
+        <div class="custom-wrapper">
+            <h1>Adopt History</h1>
+            <div class="d-flex justify-content-center align-items-center gap-3 flex-wrap p-2">
+                {% for post in dataa %}
+                <div class="card shadow pet-card" style="width: 19rem;">
+                    <div>
+                        <img src="{{post.a_pets.image.url}}" class="card-img-top" alt="Pet Image" style="height:160px">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a class="btn p-1 pet-name btn-warning" href="">{{post.a_pets.name}}</a>
+                        </h5>
+                        <p class="card-title">{{post.a_pets.discription | truncatewords:11}}</p>
+                        <h5 class="card-title price" style="position: relative; bottom: 18px;">Price: ${{post.a_pets.price}}</h5>
+                        <p class="type">
+                            <span style="font-weight: 600;">Pet Type:</span>
+                            <button class="btn btn-danger p-0 m-0" style="margin-left: 5px;">{{ post.a_pets.pet_type }}</button>
+                        </p>
+                        <p class="card-title adopt-date d-flex" style="position: relative; bottom: 25px;">
+                            <span style="font-weight: 600;">Adopt Date:</span>
+                            <span style="margin-left: 5px;">{{ post.adopt_date }}</span>
+                        </p>
+                        <div class='btnn'>
+                            <a class="btn btn-danger m-2" style="position: relative; top: 25px;" href="{% url 'Details' post.a_pets.id %}">Review</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% include "fotter.html" %}
+{% endblock %}

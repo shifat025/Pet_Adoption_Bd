@@ -20,7 +20,6 @@ body {
   width: 500px;
   padding: 40px;
   margin: 30px;
-  margin-top: 90px !important;
   transform: translate(-50%, 0%);
   background: rgba(0,0,0,.5);
   box-sizing: border-box;

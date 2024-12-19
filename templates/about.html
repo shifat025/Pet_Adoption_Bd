@@ -3,52 +3,61 @@
 
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
-{% endblock  %}
+{% endblock %}
 
 {% block content %}
-<header class="container">
-    <div >
-        <h1>About</h1>
+<!-- Hero Section -->
+<!-- Hero Section -->
+<header class="hero-section">
+    <div class="hero-content">
+        <h1 class="hero-title">About Pet Adopt BD</h1>
+        <p class="hero-subtitle">Making a Difference, One Pet at a Time</p>
+        <a href="#about-intro" class="hero-button">Learn More</a>
     </div>
 </header>
 
+
+<!-- About Section -->
 <section class="about">
     <div class="container">
-        <div class="d-flex">
-            <img src="{% static "images/adopt.jpeg" %}" alt="" >
-            <div>
-                <p>Welcome to Pet Adopt BD, where we are committed to making a difference in the lives of animals in need. Our organization was founded with the belief that every pet deserves a loving and permanent home.</p>
-                <p>At Pet Adopt BD, we work tirelessly to rescue, rehabilitate, and rehome pets that have been abandoned, neglected, or are in need of a new family. Our dedicated team of volunteers and staff members is passionate about creating happy endings for both pets and adopters.</p>
+        <!-- Introduction Section -->
+        <div class="about-row" id="about-intro">
+            <img src="{% static 'images/adopt.jpeg' %}" alt="About Pet Adopt BD" class="about-image">
+            <div class="about-text">
+                <h2>Welcome to Pet Adopt BD</h2>
+                <p>At Pet Adopt BD, we are dedicated to rescuing and rehoming pets in need. Every pet deserves a loving home, and we work tirelessly to make that happen.</p>
+                <p>We focus on connecting pets with families and offering a safe environment for adoption. Our mission is to create happy endings for pets and their future families.</p>
             </div>
         </div>
 
-        <div class="d-flex">
-            <img class="misson" src="{% static "images/our_misson.jpg" %}" alt="">
-            <div>
-                <h3>Our Mission</h3>
-                <p>Our mission is to connect animals with compassionate individuals and families who can provide them with a safe and nurturing environment. We strive to create lifelong bonds between pets and their adopters, ensuring that each adoption is a successful and fulfilling experience.</p>
+        <!-- Our Mission Section -->
+        <div class="about-row">
+            <div class="about-text">
+                <h2>Our Mission</h2>
+                <p>To connect animals with compassionate families and individuals who can offer a safe and loving home. We ensure successful adoptions that create lifelong bonds between pets and adopters.</p>
+            </div>
+            <img src="{% static 'images/our_misson.jpg' %}" alt="Our Mission" class="about-image">
+        </div>
+
+        <!-- How We Operate Section -->
+        <div class="about-row">
+            <img src="{% static 'images/oporate.jpg' %}" alt="How We Operate" class="about-image">
+            <div class="about-text">
+                <h2>How We Operate</h2>
+                <p>We operate as a non-profit organization, relying on community support and donations. All funds go directly towards veterinary services, shelter, food, and enrichment programs for our animals.</p>
             </div>
         </div>
 
-        <div class="d-flex">
-            <img src="{% static "images/oporate.jpg" %}" class="cropped-image" alt="">
-            <div>
-                <h3>How We Operate</h3>
-                <p>We operate as a non-profit organization, relying on donations, sponsorships, and the support of our community. All funds raised go directly towards the care of our animals, including veterinary services, shelter, food, and enrichment programs.</p>
+        <!-- Get Involved Section -->
+        <div class="about-row">
+            <div class="about-text">
+                <h2>Get Involved</h2>
+                <p>We welcome your support through adoption, volunteering, or donations. Together, we can make a positive impact and create a world where every pet finds a loving home.</p>
             </div>
-        </div>
-
-        <div class="d-flex">
-            <img src="{% static "images/involved.jpg" %}" alt="">
-            <div>
-                <h3>Get Involved</h3>
-                <p>Whether you're looking to adopt a new furry friend, volunteer your time, or make a donation, there are many ways to get involved with Pet Adopt BD. Together, we can make a positive impact on the lives of animals and create a world where every pet has a loving home.</p>
-            </div>
+            <img src="{% static 'images/involved.jpg' %}" alt="Get Involved" class="about-image">
         </div>
     </div>
 </section>
 
-
-
 {% include "fotter.html" %}
-{% endblock  %}
+{% endblock %}

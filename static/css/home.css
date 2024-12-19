@@ -1,5 +1,6 @@
  
   
+
 .n-logo{
     width: 60px;
     height: 40px;
@@ -18,9 +19,7 @@
     right: 30px;
 }
 
-.deposit{
-    margin-bottom: 200px;
-}
+
 .carousel-image {
     width: 100%;
     height: 880px; /* Set desired height */
@@ -73,3 +72,11 @@
 }
 
   /* for se all */
+
+
+
+
+  /* for service */
+  .equal-height-card {
+    min-height: 370px; /* Adjust as needed */
+  }

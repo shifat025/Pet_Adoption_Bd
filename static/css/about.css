@@ -1,71 +1,188 @@
-body {
-    font-family: 'Arial', sans-serif;
+/* General Reset and Styles */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
     color: #333;
-}
-.misson{
-    height: 180px;
-}
-header {
-    background-color: #3498db;
-    color: #ecf0f1;
-    padding: 20px 0;
-    text-align: center;
+    line-height: 1.6;
 }
 
-h1 {
-    font-size: 3em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.about {
-    /* background-color: #ecf0f1; */
-    padding: 50px 0;
-}
-
-.d-flex {
+/* Hero Section */
+/* Hero Section */
+.hero-section {
+    background-image: url('{% static "images/hero-bg.jpg" %}');
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
     display: flex;
-    gap: 10px;
-    padding: 5px;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+    text-align: center;
+    position: relative;
+    border-radius: 12px;
 }
 
-.d-flex:hover {
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+}
+
+.hero-content {
+    z-index: 1;
+    color: white;
+    padding: 20px;
+}
+
+.hero-title {
+    font-size: 3.5em;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-subtitle {
+    font-size: 1.5em;
+    font-weight: 300;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.hero-button {
+    font-size: 1.2em;
+    font-weight: 500;
+    padding: 12px 30px;
+    background-color: #ff6b6b;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.hero-button:hover {
+    background-color: #ff4d4d;
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5em;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2em;
+    }
+
+    .hero-button {
+        padding: 10px 25px;
+        font-size: 1em;
+    }
+}
+
+
+/* About Section */
+.about {
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* About Row */
+.about-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+    gap: 30px;
+    padding: 20px;
+}
+
+.about-row img {
+    flex: 1;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.about-row img:hover {
     transform: scale(1.05);
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.cropped-image {
-    width: 30%;
+.about-row .about-text {
+    flex: 1;
 }
 
-h3 {
-    color: #e74c3c;
-    font-size: 1.8em;
-    margin-bottom: 15px;
+.about-row h2 {
+    font-size: 2.5em;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 20px;
 }
 
-p {
-    font-size: 1.2em;
-    line-height: 1.6;
-    color: #555;
+.about-row p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #7f8c8d;
 }
 
+/* Footer Styling */
+footer {
+    background-color: #343a40;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 60px;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+}
 
-/* Responsive Styles */
-@media screen and (max-width: 768px) {
-    .d-flex {
+footer p {
+    font-size: 1em;
+    margin: 10px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-overlay h1 {
+        font-size: 2.8em;
+    }
+
+    .hero-overlay p {
+        font-size: 1.2em;
+        text-align: center;
+    }
+
+    .about-row {
         flex-direction: column;
+        text-align: center;
+    }
+
+    .about-row img {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 20px;
+    }
+
+    .about-row .about-text {
+        width: 100%;
+        margin: 0 auto;
     }
 }
