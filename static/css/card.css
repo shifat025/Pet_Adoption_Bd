@@ -65,10 +65,20 @@
 .card.shadow.pet-card h5.card-title a.btn {
     color: #fff;
 }
-.latest{
-    color: #f3480e;
+.latest {
+    color: #f3480e; /* Vibrant orange for attention */
     font-weight: bold;
+    font-size: 3rem; /* Bigger font for emphasis */
+    background: linear-gradient(90deg, #f3480e, #ff8c42); /* Gradient background */
+    -webkit-background-clip: text; /* Clipping to text */
+    -webkit-text-fill-color: transparent; /* Transparent fill for gradient effect */
+    text-transform: uppercase; /* Uppercase for bold impact */
+    letter-spacing: 2px; /* Wide spacing for modern appeal */
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Stronger shadow for 3D effect */
+    font-family: 'Poppins', sans-serif; /* Trendy font */
+    text-align: center; /* Center-align the text */
 }
+
 
 .card-img-top{
     height: 130px;

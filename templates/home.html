@@ -63,9 +63,9 @@
       <div class="d-flex justify-content-center mb-4">
         <h2 class="latest">Our latest pet</h2>
       </div>
-      <div class="row justify-content-center" style="max-width: 1280px; margin: 0 auto;">
+      <div class="row justify-content-center" style="max-width: 1280px; margin: 80px auto;">
         {% for pet in data|slice:":4" %}
-        <div class="col-md-3 col-sm-6 mb-4">
+        <div class="col-md-3 col-sm-6 ">
           <a href="{% url 'Details' pet.id %}">
             <div class="card shadow pet-card" style="width: 100%;">
               <div>
@@ -77,8 +77,8 @@
                 </h5>
                 <p class="card-title">{{pet.discription | truncatewords:10}}</p>
                 <h5 class="card-title price" style="position: relative; bottom: 18px;">Price: ${{pet.price}}</h5>
-                <p class="type">Pet Type: 
-                  <button class="btn btn-danger p-0 m-0">{{pet.pet_type}}</button>
+                <p class="type fw-semibold">Pet Type: 
+                  <button class="btn btn-danger pt-0 pb-0 m-0">{{pet.pet_type}}</button>
                 </p>
                 <div class="available">
                   {% if pet.is_available %}
@@ -97,7 +97,7 @@
         {% endfor %}
       </div>
       <a href="{% url 'all_pet' %}" class="d-block">
-        <div class="text-center mt-4">
+        <div class="text-center ">
           <button class="btn btn-custom">See All Pets</button>
         </div>
       </a>
