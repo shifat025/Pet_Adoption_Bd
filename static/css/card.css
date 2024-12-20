@@ -1,3 +1,96 @@
+
+
+/* Style start for carousel captions */
+.carousel-image {
+    filter: brightness(0.6); /* Darkens the image */
+    height: 880px !important; /* Set desired height */
+    object-fit: cover; /* Ensure the image scales without distortion */
+  }
+.carousel-caption {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Style for the h1 and h3 headings */
+  .carousel-caption h1,
+  .carousel-caption h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  
+  .carousel-caption h1 {
+    font-size: 3.5rem;
+    letter-spacing: 2px;
+  }
+  
+  .carousel-caption h3 {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+  
+  /* Style for the smaller text (h5) */
+  .carousel-caption h5 {
+    font-family: 'Arial', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+  }
+  
+  /* Button styling */
+  .carousel-caption .btn {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    border-radius: 30px;
+    padding: 12px 30px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .carousel-caption .btn-primary {
+    background-color: #007bff;
+    border: none;
+  }
+  
+  .carousel-caption .btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+  
+  
+  /* For smaller screens (mobile responsiveness) */
+  @media (max-width: 768px) {
+    .carousel-image {
+        height: 400px !important; /* Adjust height for smaller screens */
+      }
+    .carousel-caption h1 {
+      font-size: 2.5rem;
+    }
+    .carousel-caption h3 {
+      font-size: 1.5rem;
+    }
+    .carousel-caption h5 {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .carousel-caption h1 {
+      font-size: 2rem;
+    }
+    .carousel-caption h3 {
+      font-size: 1.3rem;
+    }
+    .carousel-caption h5 {
+      font-size: 0.9rem;
+    }
+  }
+  /* Style end for carousel captions */
+
+  
+  /* Start for team */
 .main-container {
     max-width: 1300px;
     margin: 0 auto; /* Centers the container */
@@ -38,6 +131,7 @@
       padding: 1rem;
     }
   }
+  /* Start end team */
   
 
 /* Star adopt section */

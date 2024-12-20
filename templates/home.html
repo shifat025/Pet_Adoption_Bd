@@ -20,23 +20,23 @@
   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="{% static 'images/carousel-1.jpg' %}" class="d-block w-100 carousel-image" alt="Adopt a pet">
+        <img src="{% static 'images/hero-3.webp' %}" class="d-block w-100 carousel-image" alt="Adopt a pet">
         <div class="carousel-caption c-caption d-flex flex-column justify-content-center align-items-center text-center">
           <div class="p-3" style="max-width: 900px;">
-            <h3 class="text-white mb-3 d-none d-sm-block">Best Pet Adoption Platform</h3>
-            <h1 class="display-3 text-white mb-3">Welcome to Our Platform</h1>
-            <h5 class="text-white mb-3 d-none d-sm-block">Adopt your dream pet easily and quickly.</h5>
+            <h3 class="text-light mb-3 d-none d-sm-block" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Best Pet Adoption Platform</h3>
+            <h1 class="display-3 text-light mb-3" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Welcome to Our Platform</h1>
+            <h5 class="text-light mb-3 d-none d-sm-block" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Adopt your dream pet easily and quickly.</h5>
             <a href="{% url 'all_pet' %}" class="btn btn-lg btn-primary mt-3 mt-md-4 px-4">Adopt Now</a>
           </div>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="{% static 'images/carousel-2.jpg' %}" class="d-block w-100 carousel-image" alt="Pet spa and grooming services">
+        <img src="{% static 'images/hero-1.webp' %}" class="d-block w-100 carousel-image" alt="Pet spa and grooming services">
         <div class="carousel-caption c-caption d-flex flex-column align-items-center justify-content-center text-center">
           <div class="p-3" style="max-width: 900px;">
-            <h3 class="text-white mb-3 d-none d-sm-block">Best Pet Services</h3>
-            <h1 class="display-3 text-white mb-3">Pet Spa & Grooming</h1>
-            <h5 class="text-white mb-3 d-none d-sm-block">Certified groomers and premium products for a stress-free experience.</h5>
+            <h3 class="text-light mb-3 d-none d-sm-block" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Best Pet Services</h3>
+            <h1 class="display-3 text-light mb-3" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Pet Spa & Grooming</h1>
+            <h5 class="text-light mb-3 d-none d-sm-block" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Certified groomers and premium products for a stress-free experience.</h5>
             <a href="#subscription" class="btn btn-lg btn-primary mt-3 mt-md-4 px-4">Subscribe Now</a>
           </div>
         </div>
@@ -65,7 +65,7 @@
       </div>
       <div class="row justify-content-center" style="max-width: 1280px; margin: 80px auto;">
         {% for pet in data|slice:":4" %}
-        <div class="col-md-3 col-sm-6 ">
+        <div class="col-md-3 col-sm-6 mb-4">
           <a href="{% url 'Details' pet.id %}">
             <div class="card shadow pet-card" style="width: 100%;">
               <div>
@@ -96,7 +96,7 @@
         </div>
         {% endfor %}
       </div>
-      <a href="{% url 'all_pet' %}" class="d-block">
+      <a href="{% url 'all_pet' %}" class="d-block mb-5" style="margin-top: -50px;">
         <div class="text-center ">
           <button class="btn btn-custom">See All Pets</button>
         </div>
