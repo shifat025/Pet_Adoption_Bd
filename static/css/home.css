@@ -11,6 +11,22 @@
     height: 150px;
     border-radius: 50%;
 }
+
+/* Show dropdown on hover */
+.nav-item.dropdown-hover:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Smooth transition for dropdown */
+.dropdown-menu {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
 .details-img{
     width: 250px;
     height: 340px;
